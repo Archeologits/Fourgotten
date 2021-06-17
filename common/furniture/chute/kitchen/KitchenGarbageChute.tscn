@@ -25,6 +25,7 @@ extents = Vector2( 30, 20 )
 extents = Vector2( 80, 80 )
 
 [node name="KitchenGarbageChute" type="StaticBody2D"]
+collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Kitchen garbage chute"
 

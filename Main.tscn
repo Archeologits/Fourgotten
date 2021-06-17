@@ -176,7 +176,7 @@ position = Vector2( 1399.87, 129.08 )
 shape = SubResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/RedRoom/Walls"]
-polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690, 1490, 520, 1080, 520, 1080, 50, 1420, 50, 1420, 180, 1990, 180, 1990, 520, 1580, 520, 1580, 690, 1640, 730, 2010, 730, 2010, 570, 2070, 570, 2070, 0, 990, 0 )
+polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690, 1490, 520, 1080, 520, 1080, 180, 1990, 180, 1990, 520, 1580, 520, 1580, 690, 1640, 730, 2010, 730, 2010, 570, 2070, 570, 2070, 0, 990, 0 )
 
 [node name="RecipeBookDestination" type="Position2D" parent="Furniture/RedRoom"]
 position = Vector2( 803.841, 789.159 )

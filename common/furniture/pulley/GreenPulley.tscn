@@ -12,6 +12,7 @@ extents = Vector2( 100, 50 )
 
 [node name="GreenPulley" type="StaticBody2D"]
 scale = Vector2( -1, 1 )
+collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Green pulley"
 tool_name = "Recipe"

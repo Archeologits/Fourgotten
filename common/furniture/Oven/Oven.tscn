@@ -26,6 +26,7 @@ extents = Vector2( 20, 100 )
 
 [node name="Oven" type="StaticBody2D"]
 scale = Vector2( 2, 1 )
+collision_mask = 0
 script = ExtResource( 3 )
 furniture_name = "Oven"
 tool_name = "True meal"

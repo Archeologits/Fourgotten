@@ -8,6 +8,7 @@ extents = Vector2( 35, 90 )
 
 [node name="Crow" type="Area2D"]
 collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 item_name = "Crow"
 tool_name = "Stuffed crow"

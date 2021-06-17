@@ -11,7 +11,9 @@ extents = Vector2( 30, 30 )
 
 [node name="Seat" type="StaticBody2D"]
 scale = Vector2( 2, 2 )
+collision_mask = 0
 script = ExtResource( 1 )
+furniture_name = "Seat"
 tool_name = "Quill"
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -26,6 +26,7 @@ extents = Vector2( 50, 50 )
 
 [node name="Chest" type="StaticBody2D"]
 scale = Vector2( 1.5, 1.5 )
+collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Chest"
 tool_name = "Blue key"

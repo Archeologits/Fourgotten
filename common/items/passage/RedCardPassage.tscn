@@ -9,6 +9,7 @@ extents = Vector2( 30, 30 )
 
 [node name="RedKey" type="Area2D"]
 collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 item_name = "Red key"
 tool_name = "Red key"

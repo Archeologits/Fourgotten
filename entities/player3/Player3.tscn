@@ -124,6 +124,7 @@ polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
 [node name="Player3" type="KinematicBody2D" groups=[
 "Players",
 ]]
+collision_layer = 3
 script = ExtResource( 3 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -135,6 +136,7 @@ script = ExtResource( 1 )
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 19 )
 animation = "up"
+frame = 2
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]
