@@ -9,8 +9,7 @@ func interact(body : Player) -> void:
     body.collect_tool("Butter knife")
     item_collected = true
     $Sprite.play("break")
-    # If audio added - simply uncomment the following
-#    $Audio.play()
+    $Audio.play()
   else:
-    Util.shake()
     Util.swap_message("I have nothing to microwave")
+    Util.shake()

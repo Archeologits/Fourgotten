@@ -4,14 +4,14 @@ class_name RecipeBook
 # Member variables
 export (String) var message : String = "Press 'E' to interact"
 onready var destination : Position2D = get_node("../RecipeBookDestination")
-var last_player : Player
 
 var pushed_down : bool = false
 var item_collected : bool = false
+var last_player : Player
 
 func interact(body : Player) -> void:
   if !pushed_down:
-    # Red pushes book down the hole (move book to Blue Room Pantry)
+    # Red pushes book down to Blue room pantry
     position = destination.position
     pushed_down = true
   elif !item_collected:

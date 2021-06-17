@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://gui/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player2/Player2.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://common/furniture/chute/kitchen/KitchenGarbageChute.tscn" type="PackedScene" id=19]
 [ext_resource path="res://common/doors/GreenDoor/GreenDoor.tscn" type="PackedScene" id=20]
 [ext_resource path="res://common/foodbowl/FoodBowl.tscn" type="PackedScene" id=21]
+[ext_resource path="res://common/effects/pantry/Pantry.tscn" type="PackedScene" id=22]
 [ext_resource path="res://common/furniture/Crow/Crow.tscn" type="PackedScene" id=23]
 [ext_resource path="res://common/furniture/Chest/Chest.tscn" type="PackedScene" id=24]
 [ext_resource path="res://common/doors/PantryDoor/PantryDoor.tscn" type="PackedScene" id=25]
@@ -117,14 +118,14 @@ z_index = -1
 [node name="Chest" parent="Furniture/BlueRoom" instance=ExtResource( 24 )]
 position = Vector2( 109.297, 1043.4 )
 
-[node name="PantryDoor" parent="Furniture/BlueRoom" instance=ExtResource( 25 )]
-position = Vector2( 800.232, 875.112 )
-
 [node name="Candle1" parent="Furniture/BlueRoom" instance=ExtResource( 14 )]
 position = Vector2( 304.741, 907.209 )
 
 [node name="Candle2" parent="Furniture/BlueRoom" instance=ExtResource( 14 )]
 position = Vector2( 527.609, 875.94 )
+
+[node name="PantryDoor" parent="Furniture/BlueRoom" instance=ExtResource( 25 )]
+position = Vector2( 800.232, 875.112 )
 
 [node name="BlueDoor" parent="Furniture/BlueRoom" instance=ExtResource( 26 )]
 position = Vector2( 968.472, 927.955 )
@@ -151,6 +152,12 @@ polygon = PoolVector2Array( -50.2883, 71.0928, 69.9599, 70.252, 69.9599, 11.3892
 
 [node name="RottenMeat" parent="Furniture/BlueRoom" instance=ExtResource( 9 )]
 position = Vector2( 415.856, 869.986 )
+
+[node name="Pantry" parent="Furniture/BlueRoom" instance=ExtResource( 22 )]
+margin_left = 707.611
+margin_top = 632.337
+margin_right = 1037.61
+margin_bottom = 832.337
 
 [node name="RedRoom" type="Node" parent="Furniture"]
 
@@ -308,6 +315,7 @@ autoplay = true
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 
+[connection signal="opened" from="Furniture/BlueRoom/PantryDoor" to="Furniture/BlueRoom/Pantry" method="_on_door_opened"]
 [connection signal="merge" from="Player1" to="." method="_on_merge"]
 [connection signal="merge" from="Player2" to="." method="_on_merge"]
 [connection signal="merge" from="Player3" to="." method="_on_merge"]

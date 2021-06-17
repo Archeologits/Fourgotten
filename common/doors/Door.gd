@@ -7,21 +7,25 @@ export (String) var key_name : String = ""
 export (String) var message : String = "Press 'E' to interact"
 export (String) var closed : String = "Can't open"
 export (String) var opened : String = "Door opened!!"
-onready var interact : Area2D = $Interact
 
-var door_opened : bool = false
 var interactible : bool = true
+var door_opened : bool = false
 var last_player : Player
 
+signal opened()
+
 func _ready() -> void:
-  interact.connect("body_entered", self, "_on_player_entered")
-  interact.connect("body_exited", self, "_on_player_exited")
+  $Interact.connect("body_entered", self, "_on_player_entered")
+  $Interact.connect("body_exited", self, "_on_player_exited")
 
 func interact(body : Player) -> void:
   if !door_opened and (key_name == "" or body.tools.has(key_name)):
     Util.swap_message(opened)
     door_opened = true
     $Collision.queue_free()
+    $Interact.queue_free()
+    emit_signal("opened")
+    $Audio.play()
     play("open")
   else:
     Util.swap_message(closed)    

@@ -6,6 +6,6 @@ func interact(body : Player) -> void:
     body.collect_tool("Blue key")
     item_collected = true
     $Sprite.play("open")
-#    $Audio.play()
+    $Audio.play()
   else:
     Util.shake()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://common/furniture/Microwave/Microwave.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/Microwave/microwave.png" type="Texture" id=2]
 [ext_resource path="res://common/furniture/Microwave/microwave_broken_anim.png" type="Texture" id=3]
+[ext_resource path="res://sounds/effects/9. MICROWAVE MASTER.wav" type="AudioStream" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -89,3 +90,4 @@ shape = SubResource( 11 )
 shape = SubResource( 12 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

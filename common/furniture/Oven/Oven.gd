@@ -8,6 +8,7 @@ func interact(body : Player) -> void:
     if body.tools.has("Lighter"):
       Util.swap_message("Oven is turned on!!")
       $Sprite.play("on")
+      $Audio.play()
       is_off = false
     else:
       Util.swap_message("I need something to turn on the oven")
