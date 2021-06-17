@@ -8,4 +8,5 @@ func interact(body : Player) -> void:
     $Sprite.play("open")
     $Audio.play()
   else:
+    Util.swap_message("...")
     Util.shake()

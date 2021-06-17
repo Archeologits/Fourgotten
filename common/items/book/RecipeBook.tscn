@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://common/items/book/RecipeBook.gd" type="Script" id=1]
+[ext_resource path="res://common/items/book/recipebook.png" type="Texture" id=2]
+[ext_resource path="res://sounds/effects/7. BOOK FALLS TO FLOOR BELOW MASTER.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70, 70 )
+
+[node name="RecipeBook" type="Area2D"]
+z_index = -1
+script = ExtResource( 1 )
+item_name = "Recipe book"
+tool_name = "Recipe"
+collected = "Found recipe: 'Bread, Meat, Wine'"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 20.0

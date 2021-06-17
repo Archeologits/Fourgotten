@@ -1,5 +1,4 @@
 extends Furniture
-class_name Microwave
 
 func interact(body : Player) -> void:
   if body.tools.has("Frozen bread with butter knife") and !item_collected:

@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://common/furniture/pulley/Pulley.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/pulley/Dining Pulley.png" type="Texture" id=2]
+[ext_resource path="res://sounds/effects/pulley.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50, 50 )
+extents = Vector2( 50, 44 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 100, 50 )
+extents = Vector2( 100, 38 )
 
 [node name="BluePulley" type="StaticBody2D"]
 script = ExtResource( 1 )
 furniture_name = "Blue pulley"
 tool_name = "Red key"
-collected = "\"Sent recipe book and found a red key!!\""
+collected = "Sent recipe book and found a red key!!"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -27,3 +28,4 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

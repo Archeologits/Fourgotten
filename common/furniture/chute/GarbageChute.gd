@@ -9,6 +9,7 @@ var other_chute : GarbageChute
 var chute_opened : bool = false
 var passage_opened : bool = false
 var chute_count : int = 0
+var tools : Array
 
 var tool_name_2 : String # Chute may hold up to two tools
 

@@ -1,5 +1,4 @@
 extends GarbageChute
-class_name KitchenGarbageChute
 
 func _ready() -> void:
   other_chute = get_node("../../RedRoom/BedroomGarbageChute")
@@ -9,23 +8,29 @@ func _ready() -> void:
 func interact(body : Player) -> void:
   if !chute_opened and body.tools.has("Butter knife"):
     _open_chute()
-    
+    $Audio.play()
+
     # Quality of life improvements - check if they have wine or rotten meat
-    if [tool_name, tool_name_2].has("Wine"):
+    if tools.has("Wine") and tools.has("Rotten meat"):
+      $Timer.start()
+      yield($Timer, "timeout")
+      Util.swap_message("Pick up wine and rotten meat? (E)")
+    elif tools.has("Wine"):
       $Timer.start()
       yield($Timer, "timeout")
       Util.swap_message("Pick up wine? (E)")
-    elif [tool_name, tool_name_2].has("Rotten meat"):
+    elif tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
       Util.swap_message("Pick up rotten meat? (E)")
 
-  elif chute_opened and !item_collected and tool_name != "":
-    Util.swap_message("Found a " + tool_name.to_lower() + "!!")
-    body.collect_tool(tool_name)
-    tool_name = ""
-  elif chute_opened and !item_collected and tool_name_2 != "":
-    Util.swap_message("Found a " + tool_name_2.to_lower() + "!!")
-    body.collect_tool(tool_name_2)
-    tool_name_2 = ""
-#    item_collected = true
+  elif chute_opened and !item_collected and !tools.empty():
+
+    if tools.has("Wine") and tools.has("Rotten meat"):
+      Util.swap_message("Found wine and rotten meat!")
+    elif tools.has("Wine"):
+      Util.swap_message("Found wine!")
+    elif tools.has("Rotten meat"):
+      Util.swap_message("Found rotten meat!")
+    for tool in tools:
+      body.collect_tool(tools.pop_back())

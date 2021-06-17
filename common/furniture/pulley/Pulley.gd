@@ -1,5 +1,4 @@
 extends Furniture
-class_name BluePulley
 
 # Member variables
 onready var other_pulley := get_node("../../GreenRoom/GreenPulley")
@@ -16,7 +15,7 @@ func interact(body : Player) -> void:
     # Activate the red card passage
     red_card_passage.activate()
     item_collected = true
-#    $Audio.play()
+    $Audio.play()
   else:
-    Util.shake()
     Util.swap_message("I have nothing to send")
+    Util.shake()

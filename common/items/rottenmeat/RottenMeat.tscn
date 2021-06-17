@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://common/items/rottenmeat/RottenMeat.gd" type="Script" id=1]
+[ext_resource path="res://common/items/rottenmeat/Rotten Meat.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 83.9605, 96.6838 )
+
+[node name="RottenMeat" type="Area2D"]
+script = ExtResource( 1 )
+item_name = "Rotten meat"
+tool_name = "Rotten meat"
+collected = "Found rotten meat!!"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_player_entered"]
+[connection signal="body_exited" from="." to="." method="_on_player_exited"]

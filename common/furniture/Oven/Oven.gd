@@ -1,6 +1,7 @@
 extends Furniture
 class_name Oven
 
+# Member variables
 var is_off : bool = true
 
 func interact(body : Player) -> void:
@@ -13,12 +14,12 @@ func interact(body : Player) -> void:
     else:
       Util.swap_message("I need something to turn on the oven")
       Util.shake()
-      
+
   elif !item_collected:
     if body.tools.has("Stuffed crow"):
       Util.swap_message(collected)
       body.collect_tool("True meal")
       item_collected = true
     else:
-      Util.shake()
       Util.swap_message("I have nothing to cook")
+      Util.shake()

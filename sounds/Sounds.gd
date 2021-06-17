@@ -6,7 +6,7 @@ var bgm : Dictionary
 var last_played = ""
 
 func _ready():
-  sounds["candle_light"] = [preload("res://sounds/effects/candle_light.wav"), 10]
+#  sounds["candle_light"] = [preload("res://sounds/effects/candle_light.wav"), 10]
   sounds["footstep"] = [preload("res://sounds/effects/new_footstep.wav"), 0]
   #sounds["footstep"] = [preload("res://sounds/effects/bluespark_footstep.wav"), 0]
   sounds["garbage_chute"] = [preload("res://sounds/effects/garbage_chute.wav"), 10]
@@ -30,10 +30,9 @@ func playbgm(room):
     play.stream = bgm["theme"]
     play.play()
   last_room = room
-  
 
 func play(name):
-  #print(name)
+#  print(name)
   var audio = Util.current_scene.get_node("AudioPlayer")
   if !audio.is_playing():
     audio.stream = sounds[name][0]

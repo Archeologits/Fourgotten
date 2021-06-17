@@ -26,6 +26,7 @@ extents = Vector2( 60, 60 )
 [node name="BedroomGarbageChute" type="StaticBody2D"]
 scale = Vector2( 1.3, 1.3 )
 script = ExtResource( 1 )
+furniture_name = "Bedroom garbage chute"
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

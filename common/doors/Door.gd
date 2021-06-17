@@ -20,13 +20,14 @@ func _ready() -> void:
 
 func interact(body : Player) -> void:
   if !door_opened and (key_name == "" or body.tools.has(key_name)):
+    # Play opening animation and remove collisions/interaction shapes
     Util.swap_message(opened)
     door_opened = true
     $Collision.queue_free()
     $Interact.queue_free()
-    emit_signal("opened")
     $Audio.play()
     play("open")
+    emit_signal("opened")
   else:
     Util.swap_message(closed)    
     Util.shake()
