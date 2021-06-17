@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/13. UNSCREWING MASTER.wav-260ce9e48c24ef174725d37a0f99d338.sample"
+
+[deps]
+
+source_file="res://sounds/effects/13. UNSCREWING MASTER.wav"
+dest_files=[ "res://.import/13. UNSCREWING MASTER.wav-260ce9e48c24ef174725d37a0f99d338.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://common/furniture/pulley/Pulley.gd" type="Script" id=1]
+[ext_resource path="res://common/furniture/pulley/Dining Pulley.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 50 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 50 )
+
+[node name="BluePulley" type="StaticBody2D"]
+script = ExtResource( 1 )
+furniture_name = "Blue pulley"
+tool_name = "Red key"
+collected = "\"Sent recipe book and found a red key!!\""
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="Interact" type="CollisionShape2D" parent="Interact"]
+shape = SubResource( 2 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]

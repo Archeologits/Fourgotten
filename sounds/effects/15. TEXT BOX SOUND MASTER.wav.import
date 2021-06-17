@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/15. TEXT BOX SOUND MASTER.wav-61e28e09a5211c9209bd9389b51a68c7.sample"
+
+[deps]
+
+source_file="res://sounds/effects/15. TEXT BOX SOUND MASTER.wav"
+dest_files=[ "res://.import/15. TEXT BOX SOUND MASTER.wav-61e28e09a5211c9209bd9389b51a68c7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

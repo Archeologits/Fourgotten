@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gui/Options.gd" type="Script" id=1]
+[ext_resource path="res://gui/tres/guitheme.tres" type="Theme" id=2]
+
+[node name="Options" type="CenterContainer"]
+margin_left = 387.0
+margin_right = 891.0
+margin_bottom = 590.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="."]
+margin_top = 268.0
+margin_right = 504.0
+margin_bottom = 322.0
+columns = 2
+
+[node name="VolumeLabel" type="Label" parent="Grid"]
+margin_right = 250.0
+margin_bottom = 30.0
+theme = ExtResource( 2 )
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="Grid"]
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 16.0
+
+[node name="ActionButton" type="Button" parent="Grid"]
+margin_top = 34.0
+margin_right = 250.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 250, 0 )
+text = "Apply Changes"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Grid"]
+margin_left = 254.0
+margin_top = 34.0
+margin_right = 504.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 250, 0 )
+text = "Back"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="draw" from="." to="." method="_on_redraw"]
+[connection signal="pressed" from="Grid/ActionButton" to="." method="_apply_changes"]

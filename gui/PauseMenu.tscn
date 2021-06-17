@@ -1,0 +1,185 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/tres/guitheme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/Options.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/PauseMenu.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.862745 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 1, 1, 1, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 1 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="MainMenu"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 595.0
+mouse_filter = 0
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainMenu/HBox"]
+margin_left = 405.0
+margin_right = 608.0
+margin_bottom = 590.0
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Continue" type="Button" parent="MainMenu/HBox/Buttons"]
+margin_top = 140.0
+margin_right = 203.0
+margin_bottom = 212.0
+text = "Continue"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="MainMenu/HBox/Buttons"]
+margin_top = 222.0
+margin_right = 203.0
+margin_bottom = 294.0
+text = "New Game"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="MainMenu/HBox/Buttons"]
+margin_top = 304.0
+margin_right = 203.0
+margin_bottom = 376.0
+text = "Options"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="MainMenu/HBox/Buttons"]
+margin_top = 386.0
+margin_right = 203.0
+margin_bottom = 449.0
+text = "v 0.0.1
+Archeologits"
+
+[node name="Savefiles" type="CenterContainer" parent="MainMenu/HBox"]
+visible = false
+margin_left = 361.0
+margin_right = 865.0
+margin_bottom = 590.0
+
+[node name="VBox" type="VBoxContainer" parent="MainMenu/HBox/Savefiles"]
+margin_top = 57.0
+margin_right = 504.0
+margin_bottom = 533.0
+
+[node name="ItemList" type="ItemList" parent="MainMenu/HBox/Savefiles/VBox"]
+margin_right = 504.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 500, 400 )
+
+[node name="Buttons" type="HBoxContainer" parent="MainMenu/HBox/Savefiles/VBox"]
+margin_top = 404.0
+margin_right = 504.0
+margin_bottom = 476.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionButton" type="Button" parent="MainMenu/HBox/Savefiles/VBox/Buttons"]
+margin_right = 250.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 250, 0 )
+text = "Action"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="MainMenu/HBox/Savefiles/VBox/Buttons"]
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 250, 0 )
+text = "Back"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" parent="MainMenu/HBox" instance=ExtResource( 2 )]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasModulate")
+anims/fade = SubResource( 1 )
+anims/stop = SubResource( 2 )
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_left = 180.0
+margin_top = 247.0
+margin_right = 826.0
+margin_bottom = 317.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MainMenu/HBox/Buttons/Continue" to="." method="_continue"]
+[connection signal="pressed" from="MainMenu/HBox/Buttons/NewGame" to="." method="_new_game"]
+[connection signal="pressed" from="MainMenu/HBox/Buttons/Options" to="." method="_options"]
+[connection signal="pressed" from="MainMenu/HBox/Savefiles/VBox/Buttons/ActionButton" to="." method="_execute_action"]
+[connection signal="pressed" from="MainMenu/HBox/Savefiles/VBox/Buttons/BackButton" to="." method="_show_buttons"]

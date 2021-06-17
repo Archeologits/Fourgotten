@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://common/furniture/Furniture.gd" type="Script" id=1]
+[ext_resource path="res://common/furniture/Bed/bed.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.0067, 14.6762 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.8227, 27.9941 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 32, -16, -32, -16, -32, 16, 32, 16 )
+
+[node name="Bed" type="StaticBody2D"]
+scale = Vector2( -3, 3 )
+script = ExtResource( 1 )
+furniture_name = "Bed"
+tool_name = "Lighter"
+collected = "Found a lighter!!"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Interact" type="Area2D" parent="."]
+
+[node name="Interact" type="CollisionShape2D" parent="Interact"]
+shape = SubResource( 2 )
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Occluder" type="LightOccluder2D" parent="."]
+occluder = SubResource( 3 )
