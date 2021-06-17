@@ -6,6 +6,7 @@
 extents = Vector2( 74.5, 69.5 )
 
 [node name="FoodBowl" type="Area2D"]
+collision_layer = 0
 script = ExtResource( 1 )
 item_name = "Food bowl"
 tool_name = "Grren key"

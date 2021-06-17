@@ -39,6 +39,7 @@ tracks/0/keys = {
 }
 
 [node name="Candle" type="Area2D"]
+collision_layer = 0
 script = ExtResource( 3 )
 item_name = "Candle"
 collected = "..."

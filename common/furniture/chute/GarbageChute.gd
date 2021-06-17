@@ -11,8 +11,6 @@ var passage_opened : bool = false
 var chute_count : int = 0
 var tools : Array
 
-var tool_name_2 : String # Chute may hold up to two tools
-
 signal chute_opened()
 
 func _on_chute_opened() -> void:
@@ -24,6 +22,7 @@ func _on_chute_opened() -> void:
 func _open_chute() -> void:
   chute_opened = true
   $Sprite.play("open")
+  $Audio.play()
   # Emit signal first to determine if chute opened or passage opened
   emit_signal("chute_opened")
   # Tell the player whether the chute is opened of the passage is opened

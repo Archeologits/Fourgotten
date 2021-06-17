@@ -1,5 +1,4 @@
 extends Furniture
-class_name Oven
 
 # Member variables
 var is_off : bool = true

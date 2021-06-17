@@ -8,7 +8,6 @@ func _ready() -> void:
 func interact(body : Player) -> void:
   if !chute_opened and body.tools.has("Butter knife"):
     _open_chute()
-    $Audio.play()
 
     # Quality of life improvements - check if they have wine or rotten meat
     if tools.has("Wine") and tools.has("Rotten meat"):

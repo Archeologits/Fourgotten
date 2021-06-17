@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://entities/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://entities/Player.gd" type="Script" id=2]
@@ -7,12 +7,7 @@
 [ext_resource path="res://entities/player4/rb_right.PNG" type="Texture" id=5]
 [ext_resource path="res://entities/player4/rb_down.PNG" type="Texture" id=6]
 [ext_resource path="res://entities/player4/rb_up.PNG" type="Texture" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50, 50 )
-
-[sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
+[ext_resource path="res://sounds/effects/new_footstep.wav" type="AudioStream" id=8]
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -120,6 +115,12 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 24, 24 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 50 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
+
 [node name="Player4" type="KinematicBody2D" groups=[
 "Players",
 ]]
@@ -131,6 +132,19 @@ script = ExtResource( 1 )
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
+[node name="Body" type="AnimatedSprite" parent="."]
+frames = SubResource( 19 )
+animation = "up"
+frame = 2
+playing = true
+
+[node name="StaticImage" type="Sprite" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 20 )
+z_index = 1
+shape = SubResource( 20 )
+
 [node name="Interaction" type="Area2D" parent="."]
 visible = false
 
@@ -141,15 +155,5 @@ shape = SubResource( 1 )
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
 
-[node name="StaticImage" type="Sprite" parent="."]
-
-[node name="Body" type="AnimatedSprite" parent="."]
-frames = SubResource( 19 )
-animation = "up"
-frame = 1
-playing = true
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 20 )
-z_index = 1
-shape = SubResource( 20 )
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
