@@ -7,7 +7,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://common/popup/Popup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player1/Player1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://common/transition/BlackScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://common/effects/transition/BlackScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://common/items/rottenmeat/RottenMeat.tscn" type="PackedScene" id=9]
 [ext_resource path="res://common/furniture/Fridge/Fridge.tscn" type="PackedScene" id=10]
 [ext_resource path="res://common/items/inkjar/InkJar.tscn" type="PackedScene" id=11]
@@ -20,7 +20,7 @@
 [ext_resource path="res://common/furniture/chute/bedroom/BedroomGarbageChute.tscn" type="PackedScene" id=18]
 [ext_resource path="res://common/furniture/chute/kitchen/KitchenGarbageChute.tscn" type="PackedScene" id=19]
 [ext_resource path="res://common/doors/GreenDoor/GreenDoor.tscn" type="PackedScene" id=20]
-[ext_resource path="res://common/foodbowl/FoodBowl.tscn" type="PackedScene" id=21]
+[ext_resource path="res://common/items/foodbowl/FoodBowl.tscn" type="PackedScene" id=21]
 [ext_resource path="res://common/effects/roof/Roof.tscn" type="PackedScene" id=22]
 [ext_resource path="res://common/items/crow/Crow.tscn" type="PackedScene" id=23]
 [ext_resource path="res://common/furniture/Chest/Chest.tscn" type="PackedScene" id=24]
@@ -112,7 +112,8 @@ tile_data = PoolIntArray( -196612, 1, 0, -196611, 1, 0, -196610, 1, 0, -196609, 
 [node name="BlueRoom" type="Node" parent="Furniture"]
 
 [node name="Chest" parent="Furniture/BlueRoom" instance=ExtResource( 24 )]
-position = Vector2( 109.297, 1043.4 )
+position = Vector2( 112.664, 1045.64 )
+scale = Vector2( 1.8, 1.5 )
 
 [node name="BluePulley" parent="Furniture/BlueRoom" instance=ExtResource( 31 )]
 position = Vector2( 895.636, 1024.18 )
@@ -154,7 +155,7 @@ position = Vector2( 115.856, 753.314 )
 polygon = PoolVector2Array( -50.2883, 71.0928, 69.9599, 70.252, 69.9599, 11.3892, 525.713, 9.43726, 526.507, 76.1081, 586.828, 76.1081, 590.003, 138.81, 649.531, 140.398, 647.943, 80.8703, 605.083, 78.4892, 603.146, 8.41388, 847.098, 9.82806, 846.391, 79.8317, 719.111, 81.2458, 720.526, 138.521, 888.817, 139.229, 889.184, -112.556, -49.2324, -110.774 )
 
 [node name="RedKeyDestination" type="Position2D" parent="Furniture/BlueRoom"]
-position = Vector2( 1237.62, 274.132 )
+position = Vector2( 1235.94, 282.541 )
 
 [node name="Roof" parent="Furniture/BlueRoom" instance=ExtResource( 22 )]
 margin_left = 712.683
@@ -193,7 +194,7 @@ position = Vector2( 1425.26, 429.22 )
 position = Vector2( 1135.78, 463.949 )
 
 [node name="RecipeBook" parent="Furniture/RedRoom" instance=ExtResource( 17 )]
-position = Vector2( 1215.24, 295.711 )
+position = Vector2( 1214.4, 284.779 )
 
 [node name="RedDoor" parent="Furniture/RedRoom" instance=ExtResource( 27 )]
 position = Vector2( 1536.61, 555.071 )

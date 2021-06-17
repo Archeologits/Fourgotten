@@ -12,17 +12,12 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "BlackScreen",
 "language": "GDScript",
-"path": "res://common/transition/BlackScreen.gd"
+"path": "res://common/effects/transition/BlackScreen.gd"
 }, {
 "base": "AnimatedSprite",
 "class": "Door",
 "language": "GDScript",
 "path": "res://common/doors/Door.gd"
-}, {
-"base": "Area2D",
-"class": "FoodBowl",
-"language": "GDScript",
-"path": "res://common/foodbowl/FoodBowl.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Furniture",
@@ -77,7 +72,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BlackScreen": "",
 "Door": "",
-"FoodBowl": "",
 "Furniture": "",
 "GarbageChute": "",
 "Item": "",
