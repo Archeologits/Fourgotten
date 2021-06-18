@@ -13,23 +13,23 @@ func set_message_stacks(player_count : int) -> void:
   for i in range(player_count):
     messages[i] = [base_message]
 
-func push_message(player : int, text : String) -> void:
-  messages[player].push_back(text)
+func push_message(player_number : int, text : String) -> void:
+  messages[player_number].push_back(text)
   _update_message()
 
-func pop_message(player : int) -> void:
-  messages[player].pop_back()
+func pop_message(player_number : int) -> void:
+  messages[player_number].pop_back()
   _update_message()
 
-func swap_message(player : int, text : String) -> void:
-  if !messages[player].empty():
-    messages[player][-1] = text
+func swap_message(player_number : int, text : String) -> void:
+  if !messages[player_number].empty():
+    messages[player_number][-1] = text
     _update_message()
 
 func swap_base_message(text : String) -> void:
   base_message = text
-  for player in messages.keys():
-    messages[player][0] = base_message
+  for player_number in messages.keys():
+    messages[player_number][0] = base_message
 
 func _update_message() -> void:
   if !messages[player].empty():

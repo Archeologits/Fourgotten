@@ -17,10 +17,10 @@ func input(event : InputEvent) -> InputEvent:
   """ Input logic """
   return event
 
-func process(delta : float) -> void:
+func process(_delta : float) -> void:
   """ State logic """
   return
 
-func physics_process(delta : float) -> void:
+func physics_process(_delta : float) -> void:
   """ State logic """
   return

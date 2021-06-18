@@ -45,6 +45,3 @@ shape = SubResource( 3 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-
-[connection signal="body_entered" from="Interact" to="." method="_on_player_entered"]
-[connection signal="body_exited" from="Interact" to="." method="_on_player_exited"]

@@ -4,7 +4,7 @@
 [ext_resource path="res://common/items/inkjar/InkJar.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 120 )
+extents = Vector2( 40, 100 )
 
 [node name="InkJar" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )

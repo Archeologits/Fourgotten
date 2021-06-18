@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func _process(delta):
+func _process(_delta):
   for child in $Inventory.get_children():
     child.queue_free()
   

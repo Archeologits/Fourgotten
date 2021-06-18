@@ -16,7 +16,6 @@ var facing : Vector2 = Vector2.RIGHT
 var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 
-signal interact(Player)
 signal merge(Player, Player)
 signal tool_collected(Player)
 signal tool_erased(Player)
