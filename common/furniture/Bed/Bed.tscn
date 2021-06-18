@@ -19,6 +19,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Bed"
 tool_name = "Lighter"
+message = "Press 'E' to search the bed"
 collected = "Found a lighter!!"
 
 [node name="Sprite" type="Sprite" parent="."]

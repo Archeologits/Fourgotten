@@ -3,7 +3,7 @@ extends Item
 func interact(body : Player) -> void:
   if body.tools.has("Weird food"):
     Util.swap_message(body.number, collected)
-    body.tools.erase("Weird food")
+    body.erase_tool("Weird food")
     body.collect_tool("Green key")
     item_collected = true
   else:

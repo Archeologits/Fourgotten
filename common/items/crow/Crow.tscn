@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 item_name = "Crow"
 tool_name = "Stuffed crow"
+message = "Press 'E' to interact with crow"
 collected = "Got a stuffed crow!!"
 
 [node name="Sprite" type="Sprite" parent="."]

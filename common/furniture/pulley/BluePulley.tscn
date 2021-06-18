@@ -15,6 +15,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Blue pulley"
 tool_name = "Red key"
+message = "Press 'E' to use pulley"
 collected = "Sent recipe book and found a red key!!"
 
 [node name="Sprite" type="Sprite" parent="."]

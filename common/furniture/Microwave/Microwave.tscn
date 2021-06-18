@@ -75,6 +75,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Microwave"
 tool_name = "Burnt bread and butter knife"
+message = "Press 'E' to use microwave"
 collected = "Got a burnt bread and butter knife!!"
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

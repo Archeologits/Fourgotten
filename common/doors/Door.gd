@@ -4,7 +4,7 @@ class_name Door
 # Member variables
 export (String) var door_name : String = "Door"
 export (String) var key_name : String = ""
-export (String) var message : String = "Press 'E' to interact"
+export (String) var message : String = "Press 'E' to open door"
 export (String) var closed : String = "Can't open"
 export (String) var opened : String = "Door opened!!"
 

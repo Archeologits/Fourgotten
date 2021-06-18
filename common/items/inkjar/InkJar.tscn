@@ -13,6 +13,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 item_name = "Ink jar"
 tool_name = "Wine"
+message = "Press 'E' to interact with ink jar "
 collected = "Got wine!!"
 
 [node name="Sprite" type="Sprite" parent="."]

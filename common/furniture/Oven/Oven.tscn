@@ -30,6 +30,7 @@ collision_mask = 0
 script = ExtResource( 3 )
 furniture_name = "Oven"
 tool_name = "True meal"
+message = "Press 'E' to use oven"
 collected = "Got a true meal!! "
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

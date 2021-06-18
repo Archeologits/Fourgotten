@@ -10,7 +10,8 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
 item_name = "Food bowl"
-tool_name = "Grren key"
+tool_name = "Green key"
+message = "Press 'E' to interact with food bowl"
 collected = "Found a green key!!"
 
 [node name="Collision" type="CollisionShape2D" parent="."]

@@ -43,6 +43,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 3 )
 item_name = "Candle"
+message = "Press 'E' to interact with candle"
 collected = "..."
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

@@ -31,6 +31,7 @@ func _on_player_entered(body : Node2D) -> void:
     last_player = body
 
 func _on_player_exited(body : Node2D) -> void:
+  # The messaging system has been updated so no need to check if last_player
   if interactible and body.is_in_group("Players"):
     Util.pop_message(body.number)
     body.interactible = null

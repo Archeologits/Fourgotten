@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource( 1 )
 item_name = "Rotten meat"
 tool_name = "Rotten meat"
+message = "Press 'E' to pick up rotten meat"
 collected = "Found rotten meat!!"
 
 [node name="Collision" type="CollisionShape2D" parent="."]

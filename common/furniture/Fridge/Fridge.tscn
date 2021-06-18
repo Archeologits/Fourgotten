@@ -16,6 +16,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Fridge"
 tool_name = "Frozen bread with butter knife"
+message = "Press 'E' to open fridge"
 collected = "Found a frozen bread with butter knife!!"
 
 [node name="Sprite" type="Sprite" parent="."]
