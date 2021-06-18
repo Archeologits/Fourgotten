@@ -19,11 +19,11 @@ func _on_chute_opened() -> void:
   if chute_count == 2:
     passage_opened = true
 
-func _open_chute(number : int) -> void:
+func _open_chute(player_number : int) -> void:
   chute_opened = true
   $Sprite.play("open")
   $Audio.play()
   # Emit signal first to determine if chute opened or passage opened
   emit_signal("chute_opened")
   # Tell the player whether the chute is opened of the passage is opened
-  Util.swap_message(number, passage_message if passage_opened else chute_message)
+  Util.swap_message(player_number, passage_message if passage_opened else chute_message)

@@ -3,7 +3,7 @@ extends Node2D
 # Member variables
 var players = []
 
-onready var popup : PopupDialog = $Popup/Popup
+onready var popup : PopupDialog = $HUD/Popup
 onready var black_screen : BlackScreen = $BlackScreen
 export var ROOMS = 4
 export var PLAYERS = 3
@@ -26,10 +26,11 @@ onready var clock = 0
 var shake_start = 0
 var last_shake_end = 0
 
-func _ready():
-#  player3 = preload("res://entities/player3/player3.tscn").instance()
-#  player5 = preload("res://entities/player5/Player5.tscn").instance()
+#===============================================================================
+# Switching players
+#===============================================================================
 
+func _ready():
   black_screen.unfade()
   Util.current_scene = self
   Util.set_message_stacks(PLAYERS)
@@ -41,15 +42,36 @@ func _ready():
     print(rooms_rects[-1])
   popup.show() # This should be shown when doors are unlocked, etc.
 
+func _input(event : InputEvent) -> void:
+  # Handles user input -> switches between players
+  for i in range(PLAYERS):
+    if active_player != i and i >= merges and event.is_action_pressed("player" + str(i+1)):
+      black_screen.fade()
+      yield(black_screen.animation_player, "animation_finished")
+      switch_to_player(i)
+      black_screen.unfade()
+
+func switch_to_player(i):
+  for j in range(PLAYERS): # Ensure all other players are false
+    players[j].current = false
+  players[i].current = true
+  active_player = i
+  Util.player = i
+  Util._update_message()
+  Util.update_inventory()
+
+#===============================================================================
+# Merging players
+#===============================================================================
+
 func _on_merge(player1 : Player, player2 : Player) -> void:
   print("merging", merges, "/", player1.id, "/", player2.id)
   if checkid(player1, player2, "R", "B"):
     merge_into(players[0], players[1], player3)
-#    Util.swap_base_message("Press 2 for blue/red, press 3 for green!")
+    Util.swap_base_message("Press 2 for blue/red, press 3 for green!")
   elif checkid(player1, player2, "RB", "G"):
-    merge_into(players[2], players[1], player4)   
-    # SET BASE MESSAGE
-#    Util.swap_base_message("All friends are reunited!")    
+    merge_into(players[2], players[1], player4)
+    Util.swap_base_message("All friends are reunited!")    
 
 func checkid(a : Player, b : Player, x : String, y : String) -> bool:
   return (a.id == x and b.id == y) or (a.id == y and b.id == x)
@@ -75,22 +97,7 @@ func get_room(pos : Vector2) -> int:
       return last_room
   return last_room
 
-func switch_to_player(i):
-#  if active_player != -1:
-#    players[active_player].current = false
-  for j in range(PLAYERS):
-    players[j].current = false
-  players[i].current = true
-  active_player = i
-  Util.player = i
-  Util._update_message()
-#  $Popup._update_message(active_player)
 
-#func set_active_player():
-#  for i in range(PLAYERS):
-#    if players[i].current:
-#      active_player = i
-#      return
 
 func _process(delta : float):
   clock += delta
@@ -127,12 +134,4 @@ func screen_shake() -> bool:
   else:
     return false
   
-func _input(event : InputEvent) -> void:
-  # Please don't judge this code too harshly (or refactor if deemed necessary)
-  # Refactoring done -- sugar, functionality should still be the same
-  for i in range(PLAYERS):
-    if active_player != i and i >= merges and event.is_action_pressed("player" + str(i+1)):
-      black_screen.fade()
-      yield(black_screen.animation_player, "animation_finished")
-      switch_to_player(i)
-      black_screen.unfade()
+

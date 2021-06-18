@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://common/furniture/pulley/Pulley.gd" type="Script" id=1]
+[ext_resource path="res://common/furniture/pulley/BluePulley.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/pulley/Dining Pulley.png" type="Texture" id=2]
 [ext_resource path="res://sounds/effects/pulley.wav" type="AudioStream" id=3]
 

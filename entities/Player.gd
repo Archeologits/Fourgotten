@@ -17,15 +17,12 @@ var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 
 signal merge(Player, Player)
-signal tool_collected(Player)
-signal tool_erased(Player)
 
 var weird_food_counter : int = 0
 
 func collect_tool(tool_name : String) -> void:
-  # If player enters tool area, tool will call this function
   tools.push_back(tool_name)
-  emit_signal("tool_collected", self)
+  Util.push_tool(number, tool_name)
   if ["Burnt bread", "Rotten meat", "Wine"].has(tool_name):
     weird_food_counter += 1
     if weird_food_counter == 3:
@@ -35,11 +32,13 @@ func collect_tool(tool_name : String) -> void:
       erase_tool("Rotten meat")
       erase_tool("Wine")      
       collect_tool("Weird food")
+      $Timer.start()
+      yield($Timer, "timeout")
+      Util.pop_message(number)
 
 func erase_tool(tool_name : String) -> void:
-  # If player enters tool area, tool will call this function
   tools.erase(tool_name)
-  emit_signal("tool_erased", self)
+  Util.erase_tool(number, tool_name)
 
 func _process(_delta : float) -> void:
   if direction.length() > 1e-6:

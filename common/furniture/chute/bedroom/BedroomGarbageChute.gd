@@ -13,7 +13,7 @@ func interact(body : Player) -> void:
     if body.tools.has("Wine") and body.tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message(body.number, "Drop wine and rotten meat in garbage chute? (E)")
+      Util.swap_message(body.number, "Drop wine & rotten meat in garbage chute? (E)")
     elif body.tools.has("Wine"):
       $Timer.start()
       yield($Timer, "timeout")
