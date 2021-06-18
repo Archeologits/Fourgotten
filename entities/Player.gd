@@ -9,16 +9,25 @@ export (int, 0, 4000) var acceleration : int = 2000
 export (int, 0, 100) var max_health : int = 100
 export (bool) var current : bool = true
 
-var interactible = null
-var tools : Array
+var body : AnimatedSprite
+var static_image : Sprite
+var audio : AudioStreamPlayer2D
 
 var facing : Vector2 = Vector2.RIGHT
 var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
+var weird_food_counter : int = 0
+var interactible = null
+var tools : Array
 
 signal merge(Player, Player)
 
-var weird_food_counter : int = 0
+func _enter_tree():
+  # These need to be assigned as soon as player enters tree for FSM to work
+  # https://kidscancode.org/godot_recipes/basics/tree_ready_order/
+  body = get_node("Body")
+  static_image = get_node("StaticImage")
+  audio = get_node("Audio")
 
 func collect_tool(tool_name : String) -> void:
   tools.push_back(tool_name)
@@ -43,32 +52,6 @@ func erase_tool(tool_name : String) -> void:
   Util.erase_tool(tool_name)
 
 func _process(_delta : float) -> void:
-  if direction.length() > 1e-6:
-    $Body.show()
-    $StaticImage.hide()
-    Sounds.play("footstep")
-  else:
-    $Body.hide()
-    $StaticImage.show()
-    
-  if direction.x > 0:
-    $Body.play("right")
-  elif direction.x < 0:
-    $Body.play("left")
-  elif direction.y < 0:
-    $Body.play("up")
-  elif direction.y > 0:
-    $Body.play("down")
-  else:
-    if facing.x > 0:
-      $StaticImage.texture = $Body.frames.get_frame("right", 0)
-    elif facing.x < 0:
-      $StaticImage.texture = $Body.frames.get_frame("left", 1)      
-    elif facing.y < 0:
-      $StaticImage.texture = $Body.frames.get_frame("up", 0)
-    elif facing.y > 0:
-      $StaticImage.texture = $Body.frames.get_frame("down", 0)
-  
   _handle_input()
 
 func _physics_process(delta : float) -> void:

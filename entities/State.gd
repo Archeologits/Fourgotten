@@ -2,15 +2,13 @@ extends Node
 class_name State
 
 var fsm : StateMachine
-var object : Object
-var animations
-var sound
+var parent : Object
 
 func enter() -> void:
   """ Play sound and animations """
   return
 
-func exit(next_state) -> void:
+func exit(next_state : String) -> void:
   fsm._change_to(next_state)
 
 func input(event : InputEvent) -> InputEvent:

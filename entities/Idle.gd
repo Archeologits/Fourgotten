@@ -1,16 +1,21 @@
 extends State
 
+func enter() -> void:
+  """ Play sound and animations """
+  parent.audio.stop()
+  parent.body.hide()
+  parent.static_image.show()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+  if parent.facing.x > 0:
+    parent.static_image.texture = parent.body.frames.get_frame("right", 0)
+  elif parent.facing.x < 0:
+    parent.static_image.texture = parent.body.frames.get_frame("left", 1)      
+  elif parent.facing.y < 0:
+    parent.static_image.texture = parent.body.frames.get_frame("up", 0)
+  elif parent.facing.y > 0:
+    parent.static_image.texture = parent.body.frames.get_frame("down", 0)
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-  pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#  pass
+func process(_delta : float) -> void:
+  """ State logic """
+  if parent.direction != Vector2.ZERO:
+    exit("Walk")

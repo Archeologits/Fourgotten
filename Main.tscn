@@ -251,13 +251,13 @@ shape = SubResource( 5 )
 position = Vector2( 1536, 1148.52 )
 
 [node name="Player0" parent="." instance=ExtResource( 3 )]
-position = Vector2( 665.248, 997.873 )
+position = Vector2( 669.883, 993.713 )
 
 [node name="Player1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1762.5, 382.271 )
+position = Vector2( 1758.84, 390.501 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2323.29, 902.104 )
+position = Vector2( 2289.03, 876.245 )
 
 [node name="BlackScreen" parent="." instance=ExtResource( 8 )]
 
