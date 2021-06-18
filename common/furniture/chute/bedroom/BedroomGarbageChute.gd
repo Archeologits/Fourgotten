@@ -14,7 +14,7 @@ func interact(body : Player) -> void:
       $Timer.start()
       yield($Timer, "timeout")
       Util.swap_message(body.number, "Drop wine and rotten meat in garbage chute? (E)")
-    if body.tools.has("Wine"):
+    elif body.tools.has("Wine"):
       $Timer.start()
       yield($Timer, "timeout")
       Util.swap_message(body.number, "Drop wine in garbage chute? (E)")
@@ -31,7 +31,7 @@ func interact(body : Player) -> void:
       body.erase_tool("Wine")
       body.erase_tool("Rotten meat")      
       Util.swap_message(body.number, "Wine and rotten meat are in garbage chute")
-    if body.tools.has("Wine"):
+    elif body.tools.has("Wine"):
       other_chute.tools.push_back("Wine") 
       body.erase_tool("Wine")
       Util.swap_message(body.number, "Wine is in garbage chute")
