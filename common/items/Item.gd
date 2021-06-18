@@ -17,22 +17,22 @@ func _ready() -> void:
 
 func interact(body : Player) -> void:
   if !item_collected and tool_name != "":
-    Util.swap_message(collected)
+    Util.swap_message(body.number, collected)
     body.collect_tool(tool_name)
     item_collected = true
   else:
-    Util.swap_message("...")
+    Util.swap_message(body.number, "...")
     Util.shake()
 
 func _on_player_entered(body : Node2D) -> void:
   if !item_collected and body.is_in_group("Players"):
-    Util.push_message(message)
+    Util.push_message(body.number, message)
     body.interactible = self
     last_player = body
 
 func _on_player_exited(body : Node2D) -> void:
-  if interactible and body == last_player:
-    Util.pop_message()
+  if interactible and body.is_in_group("Players"):
+    Util.pop_message(body.number)
     body.interactible = null
     if item_collected:
       queue_free()

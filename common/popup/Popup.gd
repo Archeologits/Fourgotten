@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 func _process(delta):
   for child in $Inventory.get_children():
     child.queue_free()
@@ -16,3 +15,4 @@ func _process(delta):
     img.create_from_image(tex)
     spr.texture = img
     $Inventory.add_child(spr)
+

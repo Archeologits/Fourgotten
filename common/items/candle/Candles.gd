@@ -10,7 +10,7 @@ func interact(body : Player) -> void:
   if body.tools.has("Lighter"):
     _switch_state()
   else:
-    Util.swap_message("...")
+    Util.swap_message(body.number, "...")
     Util.shake()
 
 func _switch_state() -> void:
@@ -28,5 +28,5 @@ func _switch_state() -> void:
 
 func _on_player_exited(body : Node2D) -> void:
   if body == last_player:
-    Util.pop_message()
+    Util.pop_message(body.number)
     body.interactible = null

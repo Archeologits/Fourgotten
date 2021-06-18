@@ -7,8 +7,8 @@ signal pulley_used
 
 func interact(body : Player) -> void:
   if body.tools.has("Recipe") and !item_collected:
-    Util.swap_message(collected)
-    body.tools.erase("Recipe")
+    Util.swap_message(body.number, collected)
+    body.erase_tool("Recipe")
     body.collect_tool("Red key")
     other_pulley.load_recipe_book()
 
@@ -17,5 +17,5 @@ func interact(body : Player) -> void:
     item_collected = true
     $Audio.play()
   else:
-    Util.swap_message("I have nothing to send")
+    Util.swap_message(body.number, "I have nothing to send")
     Util.shake()

@@ -13,7 +13,7 @@ func interact(body : Player) -> void:
   # Item moves with player
   connected_to_player = !connected_to_player # toggle connection
   if chair_under_crow and tool_name == "Quill":
-    Util.swap_message("Found quill!!")
+    Util.swap_message(body.number, "Found quill!!")
     body.collect_tool("Quill")
     tool_name = ""
   elif connected_to_player: # Inherit the chair's collision shape
@@ -44,10 +44,10 @@ func interact(body : Player) -> void:
 
 func _on_crow_entered(body : Node2D) -> void:
   if body.name == "Crow" and tool_name == "Quill":
-    Util.swap_message("Collect quill? (E)")
+    Util.swap_message(body.number, "Collect quill? (E)")
     chair_under_crow = true
 
 func _on_crow_exited(body : Node2D) -> void:
   if body.name == "Crow":
-    Util.swap_message(message)
+    Util.swap_message(body.number, message)
     chair_under_crow = false

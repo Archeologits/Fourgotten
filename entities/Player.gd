@@ -2,11 +2,12 @@ extends KinematicBody2D
 class_name Player
 
 # Member variables
+export (String) var id : String = ""
+export (int, 0, 2) var number : int = 0
 export (int, 0, 2000) var speed : int = 400
 export (int, 0, 4000) var acceleration : int = 2000
 export (int, 0, 100) var max_health : int = 100
 export (bool) var current : bool = true
-var id = ""
 
 var interactible = null
 var tools : Array
@@ -17,21 +18,29 @@ var velocity : Vector2 = Vector2.ZERO
 
 signal interact(Player)
 signal merge(Player, Player)
+signal tool_collected(Player)
+signal tool_erased(Player)
 
 var weird_food_counter : int = 0
 
 func collect_tool(tool_name : String) -> void:
   # If player enters tool area, tool will call this function
   tools.push_back(tool_name)
+  emit_signal("tool_collected", self)
   if ["Burnt bread", "Rotten meat", "Wine"].has(tool_name):
     weird_food_counter += 1
     if weird_food_counter == 3:
       weird_food_counter = 0 # This is a safety precaution
-      Util.push_message("Made weird food")
-      tools.erase("Burnt bread")
-      tools.erase("Rotten meat")
-      tools.erase("Wine")      
+      Util.push_message(number, "Made weird food")
+      erase_tool("Burnt bread")
+      erase_tool("Rotten meat")
+      erase_tool("Wine")      
       collect_tool("Weird food")
+
+func erase_tool(tool_name : String) -> void:
+  # If player enters tool area, tool will call this function
+  tools.erase(tool_name)
+  emit_signal("tool_erased", self)
 
 func _process(_delta : float) -> void:
   if direction.length() > 1e-6:

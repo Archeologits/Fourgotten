@@ -7,29 +7,38 @@ func _ready() -> void:
 
 func interact(body : Player) -> void:
   if !chute_opened and body.tools.has("Butter knife"):
-    _open_chute()
+    _open_chute(body.number)
 
     # Quality of life improvements - check if they have wine or rotten meat
     if tools.has("Wine") and tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message("Pick up wine and rotten meat? (E)")
+      Util.swap_message(body.number, "Pick up wine and rotten meat? (E)")
     elif tools.has("Wine"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message("Pick up wine? (E)")
+      Util.swap_message(body.number, "Pick up wine? (E)")
     elif tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message("Pick up rotten meat? (E)")
+      Util.swap_message(body.number, "Pick up rotten meat? (E)")
 
   elif chute_opened and !item_collected and !tools.empty():
 
     if tools.has("Wine") and tools.has("Rotten meat"):
-      Util.swap_message("Found wine and rotten meat!")
+      Util.swap_message(body.number, "Found wine and rotten meat!")
+      body.collect_tool("Wine")
+      body.collect_tool("Rotten meat")
+      tools.clear()
     elif tools.has("Wine"):
-      Util.swap_message("Found wine!")
+      Util.swap_message(body.number, "Found wine!")
+      body.collect_tool("Wine")
+      tools.clear()
     elif tools.has("Rotten meat"):
-      Util.swap_message("Found rotten meat!")
-    for tool in tools:
-      body.collect_tool(tools.pop_back())
+      Util.swap_message(body.number, "Found rotten meat!")
+      body.collect_tool("Rotten meat")
+      tools.clear()
+
+  else:
+    Util.swap_message(body.number, "...")
+    Util.shake()

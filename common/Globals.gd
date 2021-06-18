@@ -4,7 +4,7 @@ extends Node
 var data : Dictionary = {}
 
 func _ready():
-  for player in range(1, 4):
+  for player in range(3):
     data[player] = {}
     data[player]["room"] = -1
 

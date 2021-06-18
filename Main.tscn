@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gui/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player2/Player2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/player3/Player3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/player0/Player0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://common/popup/Popup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player1/Player1.tscn" type="PackedScene" id=7]
@@ -33,19 +33,19 @@
 [ext_resource path="res://common/items/passage/RedCardPassage.tscn" type="PackedScene" id=32]
 [ext_resource path="res://sounds/awesome_music.wav" type="AudioStream" id=33]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 60 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 7 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6.30469, 37.9765 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6.85986, 70.614 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 190, 20 )
 
 [node name="Main" type="Node2D"]
@@ -98,7 +98,7 @@ position = Vector2( 416.791, 888.098 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/BlueRoom/Table"]
 position = Vector2( 0, 3.36365 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Walls" type="StaticBody2D" parent="Furniture/BlueRoom"]
 position = Vector2( 115, 750 )
@@ -165,15 +165,15 @@ collision_mask = 0
 
 [node name="Collision1" type="CollisionShape2D" parent="Furniture/RedRoom/Walls"]
 position = Vector2( 1248.32, 327.705 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Collision2" type="CollisionShape2D" parent="Furniture/RedRoom/Walls"]
 position = Vector2( 1400.22, 361.114 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Collision3" type="CollisionShape2D" parent="Furniture/RedRoom/Walls"]
 position = Vector2( 1399.87, 129.08 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/RedRoom/Walls"]
 polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690, 1490, 520, 1080, 520, 1080, 180, 1990, 180, 1990, 520, 1580, 520, 1580, 690, 1640, 730, 2010, 730, 2010, 570, 2070, 570, 2070, 0, 990, 0 )
@@ -240,20 +240,20 @@ position = Vector2( 1535, 1150 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Furniture/MainRoom/Walls"]
 position = Vector2( -290, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Furniture/MainRoom/Walls"]
 position = Vector2( 290, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
+
+[node name="Player0" parent="." instance=ExtResource( 3 )]
+position = Vector2( 665.248, 997.873 )
 
 [node name="Player1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 653.566, 967.808 )
+position = Vector2( 1762.5, 382.271 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1804.02, 409.485 )
-
-[node name="Player3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2310.88, 968.156 )
+position = Vector2( 2323.29, 902.104 )
 
 [node name="BlackScreen" parent="." instance=ExtResource( 8 )]
 
@@ -310,6 +310,5 @@ autoplay = true
 
 [connection signal="opened" from="Furniture/BlueRoom/PantryDoor" to="Furniture/BlueRoom/Roof" method="_on_door_opened"]
 [connection signal="opened" from="Furniture/RedRoom/StudyRoomDoor" to="Furniture/RedRoom/Roof" method="_on_door_opened"]
-[connection signal="merge" from="Player1" to="." method="_on_merge"]
+[connection signal="merge" from="Player0" to="." method="_on_merge"]
 [connection signal="merge" from="Player2" to="." method="_on_merge"]
-[connection signal="merge" from="Player3" to="." method="_on_merge"]
