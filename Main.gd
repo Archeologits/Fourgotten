@@ -1,10 +1,6 @@
 extends Node2D
 
 # Member variables
-var players = []
-
-onready var popup : PopupDialog = $HUD/Popup
-onready var black_screen : BlackScreen = $BlackScreen
 export var ROOMS = 4
 export var PLAYERS = 3
 export var NUMBER_OF_SHAKES = 3
@@ -12,6 +8,10 @@ export var SHAKE_INTENSITY = 10
 export var SHAKE_BREAK = 1
 export var SHAKE_TIME = 0.5
 
+onready var popup : PopupDialog = $HUD/Popup
+onready var black_screen : BlackScreen = $BlackScreen
+
+var players = []
 var rooms_rects = []
 var active_player = -1
 var room : int = -1
@@ -31,15 +31,15 @@ var last_shake_end = 0
 #===============================================================================
 
 func _ready():
-  black_screen.unfade()
-  Util.current_scene = self
-  Util.set_message_stacks(PLAYERS)
   for i in range(PLAYERS):
     players.append(get_node("Player" + str(i)))
-  switch_to_player(0)
   for i in range(1, ROOMS + 1):
     rooms_rects.append(get_node("Room" + str(i)).get_rect())
-    print(rooms_rects[-1])
+
+  Util.current_scene = self
+  Util.set_message_stacks(PLAYERS)
+  black_screen.unfade()
+  switch_to_player(0)
   popup.show() # This should be shown when doors are unlocked, etc.
 
 func _input(event : InputEvent) -> void:
@@ -65,7 +65,6 @@ func switch_to_player(i):
 #===============================================================================
 
 func _on_merge(player1 : Player, player2 : Player) -> void:
-  print("merging", merges, "/", player1.id, "/", player2.id)
   if checkid(player1, player2, "R", "B"):
     merge_into(players[0], players[1], player3)
     Util.swap_base_message("Press 2 for blue/red, press 3 for green!")
@@ -90,24 +89,16 @@ func merge_into(a : Player, b : Player, c : Player):
   switch_to_player(c.number)
   merges += 1
 
-func get_room(pos : Vector2) -> int:
-  for i in range(0, ROOMS):
-    if rooms_rects[i].has_point(pos):
-      last_room = i + 1
-      return last_room
-  return last_room
-
-
+#===============================================================================
+# Switching rooms
+#===============================================================================
 
 func _process(delta : float):
   clock += delta
-  #print(active_player)
   room = get_room(players[active_player].position)
   Sounds.playbgm(room)
-  #print("Room:" , room, Globals.data[active_player]["room"])
   if Globals.data[active_player]["room"] != room:
     Globals.data[active_player]["room"] = room
-    #Util.push_message("Currently in Room #" + str(room))
   var rect = rooms_rects[room - 1]
   var screen_size = get_viewport().size
   var canvas_trans = get_viewport().get_canvas_transform()
@@ -126,6 +117,13 @@ func _process(delta : float):
       shake_mode = false
   get_viewport().set_canvas_transform(canvas_trans)
 
+func get_room(pos : Vector2) -> int:
+  for i in range(0, ROOMS):
+    if rooms_rects[i].has_point(pos):
+      last_room = i + 1
+      return last_room
+  return last_room
+
 func screen_shake() -> bool:
   if clock - shake_start > SHAKE_BREAK + SHAKE_TIME:
     shake_mode = true
@@ -133,5 +131,3 @@ func screen_shake() -> bool:
     return true
   else:
     return false
-  
-

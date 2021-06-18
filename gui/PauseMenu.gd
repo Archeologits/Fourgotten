@@ -84,7 +84,7 @@ func _show_list(new_mode : String) -> void:
   _show_files()
 
 func _show_files() -> void:
-  savefile_list.clear()               # Clear the item list
+  savefile_list.clear()           # Clear the item list
   var dir = Directory.new()
   if !dir.dir_exists(SAVE_PATH):  # Create save directory if it doesn't exist
     dir.make_dir(SAVE_PATH)

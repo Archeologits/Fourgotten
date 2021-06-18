@@ -10,7 +10,7 @@ func shake():
   current_scene.screen_shake()
 
 func get_player():
-  return current_scene.players[current_scene.active_player - 1]
+  return current_scene.players[current_scene.active_player]
 
 #===============================================================================
 # Popup messages
@@ -49,27 +49,29 @@ func _update_message() -> void:
 #===============================================================================
 
 func update_inventory() -> void:
+  for tool_name in inventory.keys():
+    erase_tool(tool_name)
   inventory.clear()
-#  for child in current_scene.get_node("HUD/Inventory"):
-#    child.queue_free()
+#  if current_scene.get_node("HUD/Inventory").get_child_count():
+#    for child in current_scene.get_node("HUD/Inventory"):
+#      child.queue_free()
   for tool_name in Util.get_player().tools:
-    push_tool(player, tool_name)
+    push_tool(tool_name)
 
-func push_tool(player_number : int, tool_name : String) -> void:
-  print("oi")
+func push_tool(tool_name : String) -> void:
   var loaded = load("res://tool_images/" + tool_name + ".png")
   if loaded == null:
     return
-  var img = loaded.get_data()
-  img.resize(32, 32)
-  var tex = ImageTexture.new()
-  tex.create_from_image(img)
-  var spr = TextureRect.new()
-  spr.texture = img
-  current_scene.get_node("HUD/Inventory").add_child(spr)
-  inventory[tool_name] = spr
+  var image = loaded.get_data()
+  image.resize(32, 32)
+  var texture = ImageTexture.new()
+  texture.create_from_image(image)
+  var sprite = TextureRect.new()
+  sprite.texture = texture
+  current_scene.get_node("HUD/Inventory").add_child(sprite)
+  inventory[tool_name] = sprite
 
-func erase_tool(player_number : int, tool_name : String) -> void:
+func erase_tool(tool_name : String) -> void:
   var spr = inventory.get(tool_name)
   if spr == null:
     return

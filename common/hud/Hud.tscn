@@ -14,6 +14,15 @@ margin_bottom = 21.0
 
 [node name="HUD" type="CanvasLayer"]
 
+[node name="Inventory" type="HBoxContainer" parent="."]
+margin_left = 664.0
+margin_top = 544.0
+margin_right = 1024.0
+margin_bottom = 584.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Popup" type="PopupDialog" parent="."]
 visible = true
 margin_top = 544.0
@@ -38,13 +47,4 @@ text = "Press 1 for blue, 2 for red, 3 for green"
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
-}
-
-[node name="Inventory" type="HBoxContainer" parent="."]
-margin_left = 664.0
-margin_top = 544.0
-margin_right = 1024.0
-margin_bottom = 584.0
-__meta__ = {
-"_edit_use_anchors_": false
 }

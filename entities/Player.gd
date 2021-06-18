@@ -22,7 +22,7 @@ var weird_food_counter : int = 0
 
 func collect_tool(tool_name : String) -> void:
   tools.push_back(tool_name)
-  Util.push_tool(number, tool_name)
+  Util.push_tool(tool_name)
   if ["Burnt bread", "Rotten meat", "Wine"].has(tool_name):
     weird_food_counter += 1
     if weird_food_counter == 3:
@@ -38,7 +38,7 @@ func collect_tool(tool_name : String) -> void:
 
 func erase_tool(tool_name : String) -> void:
   tools.erase(tool_name)
-  Util.erase_tool(number, tool_name)
+  Util.erase_tool(tool_name)
 
 func _process(_delta : float) -> void:
   if direction.length() > 1e-6:

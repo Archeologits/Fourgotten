@@ -1,7 +1,7 @@
 extends Node
 class_name StateMachine
 
-const DEBUG = true
+const DEBUG = false
 
 var state: Object
 var parent : Object
