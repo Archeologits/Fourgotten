@@ -27,10 +27,12 @@ func collect_tool(tool_name : String) -> void:
     weird_food_counter += 1
     if weird_food_counter == 3:
       weird_food_counter = 0 # This is a safety precaution
+      $Timer.start()
+      yield($Timer, "timeout")
       Util.push_message(number, "Made weird food")
       erase_tool("Burnt bread")
       erase_tool("Rotten meat")
-      erase_tool("Wine")      
+      erase_tool("Wine")
       collect_tool("Weird food")
       $Timer.start()
       yield($Timer, "timeout")

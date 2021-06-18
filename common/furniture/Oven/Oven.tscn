@@ -47,3 +47,7 @@ shape = SubResource( 3 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true

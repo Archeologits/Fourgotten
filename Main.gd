@@ -66,11 +66,11 @@ func switch_to_player(i):
 
 func _on_merge(player1 : Player, player2 : Player) -> void:
   if checkid(player1, player2, "R", "B"):
-    merge_into(players[0], players[1], player3)
     Util.swap_base_message("Press 2 for blue/red, press 3 for green!")
+    merge_into(players[0], players[1], player3)
   elif checkid(player1, player2, "RB", "G"):
-    merge_into(players[2], players[1], player4)
     Util.swap_base_message("All friends are reunited!")    
+    merge_into(players[2], players[1], player4)
 
 func checkid(a : Player, b : Player, x : String, y : String) -> bool:
   return (a.id == x and b.id == y) or (a.id == y and b.id == x)

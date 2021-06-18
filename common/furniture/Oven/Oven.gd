@@ -10,6 +10,11 @@ func interact(body : Player) -> void:
       $Sprite.play("on")
       $Audio.play()
       is_off = false
+      
+      if body.tools.has("Stuffed crow"):
+        $Timer.start()
+        yield($Timer, "timeout")
+        Util.swap_message(body.number, "Put stuffed crow in the oven? (E)")
     else:
       Util.swap_message(body.number, "I need something to turn on the oven")
       Util.shake()
