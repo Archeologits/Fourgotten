@@ -139,7 +139,7 @@ script = ExtResource( 1 )
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "up"
-frame = 1
+frame = 2
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]
@@ -159,3 +159,4 @@ occluder = SubResource( 20 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+bus = "Effects"

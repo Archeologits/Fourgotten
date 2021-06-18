@@ -3,7 +3,7 @@ extends Node
 var current_scene = null
 var player : int
 var messages : Dictionary # Should this be an array of arrays?
-var inventory : Dictionary
+var inventory : Dictionary # We store only the current player inventory
 var base_message : String = "Press 1 for blue, 2 for red, 3 for green"
 
 func shake():
@@ -50,11 +50,7 @@ func _update_message() -> void:
 
 func update_inventory() -> void:
   for tool_name in inventory.keys():
-    erase_tool(tool_name)
-  inventory.clear()
-#  if current_scene.get_node("HUD/Inventory").get_child_count():
-#    for child in current_scene.get_node("HUD/Inventory"):
-#      child.queue_free()
+    erase_tool(tool_name) # Is this safe?
   for tool_name in Util.get_player().tools:
     push_tool(tool_name)
 
@@ -72,8 +68,8 @@ func push_tool(tool_name : String) -> void:
   inventory[tool_name] = sprite
 
 func erase_tool(tool_name : String) -> void:
-  var spr = inventory.get(tool_name)
-  if spr == null:
+  var sprite = inventory.get(tool_name)
+  if sprite == null:
     return
-  current_scene.get_node("HUD/Inventory").remove_child(spr)
-  inventory.erase(spr)
+  current_scene.get_node("HUD/Inventory").remove_child(sprite)
+  inventory.erase(sprite)

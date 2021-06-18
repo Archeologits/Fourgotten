@@ -47,3 +47,4 @@ shape = SubResource( 3 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+bus = "Effects"

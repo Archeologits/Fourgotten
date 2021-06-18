@@ -30,6 +30,7 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+bus = "Effects"
 
 [node name="Occluder" type="LightOccluder2D" parent="."]
 occluder = SubResource( 3 )

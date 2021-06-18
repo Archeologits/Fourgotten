@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://gui/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player2/Player2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/player0/Player0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://common/hud/Hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://common/doors/MainDoor/MainDoor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player1/Player1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://common/effects/transition/BlackScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://common/items/rottenmeat/RottenMeat.tscn" type="PackedScene" id=9]
@@ -136,13 +137,13 @@ position = Vector2( 1238.39, 149.002 )
 z_index = -1
 
 [node name="Candle1" parent="Rooms/RedRoom" instance=ExtResource( 14 )]
-position = Vector2( 1582.59, 498.741 )
+position = Vector2( 1650.99, 481.299 )
 
 [node name="Candle2" parent="Rooms/RedRoom" instance=ExtResource( 14 )]
 position = Vector2( 1615.18, 273.579 )
 
 [node name="Candle3" parent="Rooms/RedRoom" instance=ExtResource( 14 )]
-position = Vector2( 1425.26, 429.22 )
+position = Vector2( 1423.48, 432.784 )
 
 [node name="Candle4" parent="Rooms/RedRoom" instance=ExtResource( 14 )]
 position = Vector2( 1135.78, 463.949 )
@@ -182,10 +183,10 @@ polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690
 position = Vector2( 803.841, 789.159 )
 
 [node name="Roof" parent="Rooms/RedRoom" instance=ExtResource( 22 )]
-margin_left = 1021.5
-margin_top = 61.3879
-margin_right = 1401.5
-margin_bottom = 321.388
+margin_left = 1019.72
+margin_top = 56.2062
+margin_right = 1399.72
+margin_bottom = 326.206
 
 [node name="Shadow" type="ColorRect" parent="Rooms/RedRoom"]
 margin_left = 983.504
@@ -246,6 +247,9 @@ shape = SubResource( 5 )
 position = Vector2( 290, 0 )
 shape = SubResource( 5 )
 
+[node name="MainDoor" parent="Rooms/MainRoom" instance=ExtResource( 6 )]
+position = Vector2( 1536, 1148.52 )
+
 [node name="Player0" parent="." instance=ExtResource( 3 )]
 position = Vector2( 665.248, 997.873 )
 
@@ -305,8 +309,10 @@ __meta__ = {
 stream = ExtResource( 33 )
 volume_db = 0.5
 autoplay = true
+bus = "Music"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
 
 [connection signal="opened" from="Rooms/BlueRoom/PantryDoor" to="Rooms/BlueRoom/Roof" method="_on_door_opened"]
 [connection signal="opened" from="Rooms/RedRoom/StudyRoomDoor" to="Rooms/RedRoom/Roof" method="_on_door_opened"]

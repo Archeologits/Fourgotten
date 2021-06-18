@@ -160,3 +160,4 @@ occluder = SubResource( 20 )
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+bus = "Effects"
