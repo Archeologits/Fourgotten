@@ -6,12 +6,8 @@ var bgm : Dictionary
 var last_played = ""
 
 func _ready():
-  sounds["footstep"] = [preload("res://sounds/effects/new_footstep.wav"), 0]
-  sounds["microwave_explode"] = [preload("res://sounds/effects/microwave.wav"), 10]
-  sounds["weird_meal"] = [preload("res://sounds/effects/weird_meal.wav"), 10]
   bgm["theme"] = preload("res://sounds/awesome_music.wav")
   bgm["main_theme"] = preload("res://sounds/main_music.wav")
-  pass  
 
 var last_room = -1
 
@@ -27,13 +23,13 @@ func playbgm(room):
     play.play()
   last_room = room
 
-func play(name):
-  var audio = Util.current_scene.get_node("AudioPlayer")
-  if !audio.is_playing():
-    audio.stream = sounds[name][0]
-    audio.play()
-    last_played = name
-  elif last_played != "" and sounds[name][1] > sounds[last_played][1]:
-    audio.stream = sounds[name][0]
-    audio.play()
-    last_played = name
+#func play(name):
+#  var audio = Util.current_scene.get_node("AudioPlayer")
+#  if !audio.is_playing():
+#    audio.stream = sounds[name][0]
+#    audio.play()
+#    last_played = name
+#  elif last_played != "" and sounds[name][1] > sounds[last_played][1]:
+#    audio.stream = sounds[name][0]
+#    audio.play()
+#    last_played = name
