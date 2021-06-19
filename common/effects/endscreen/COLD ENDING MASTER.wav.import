@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/COLD ENDING MASTER.wav-5d7d4625594a6edbf3353eed33cbc89b.sample"
+
+[deps]
+
+source_file="res://common/effects/endscreen/COLD ENDING MASTER.wav"
+dest_files=[ "res://.import/COLD ENDING MASTER.wav-5d7d4625594a6edbf3353eed33cbc89b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

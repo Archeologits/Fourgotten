@@ -23,6 +23,8 @@ func playbgm(room):
     play.play()
   last_room = room
 
+func stop():
+  Util.current_scene.get_node("BackgroundMusic").stop()
 #func play(name):
 #  var audio = Util.current_scene.get_node("AudioPlayer")
 #  if !audio.is_playing():

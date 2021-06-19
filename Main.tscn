@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://gui/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player2/Player2.tscn" type="PackedScene" id=2]
@@ -34,6 +34,10 @@
 [ext_resource path="res://common/items/passage/RedCardPassage.tscn" type="PackedScene" id=32]
 [ext_resource path="res://sounds/awesome_music.wav" type="AudioStream" id=33]
 [ext_resource path="res://common/effects/endscreen/EndScreen.tscn" type="PackedScene" id=34]
+[ext_resource path="res://common/effects/endscreen/COLD ENDING MASTER.wav" type="AudioStream" id=35]
+[ext_resource path="res://common/effects/endscreen/GOOD ENDING MASTER.wav" type="AudioStream" id=36]
+[ext_resource path="res://common/effects/endscreen/CRUEL ENDING MASTER.wav" type="AudioStream" id=37]
+[ext_resource path="res://common/effects/endscreen/TRUE ENDING MASTER.wav" type="AudioStream" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 60 )
@@ -261,6 +265,12 @@ position = Vector2( 1758.84, 390.501 )
 position = Vector2( 2289.03, 876.245 )
 
 [node name="EndScreen" parent="." instance=ExtResource( 34 )]
+streams = {
+"cold end": ExtResource( 35 ),
+"cruel end": ExtResource( 37 ),
+"good end": ExtResource( 36 ),
+"true end": ExtResource( 38 )
+}
 
 [node name="BlackScreen" parent="." instance=ExtResource( 8 )]
 
