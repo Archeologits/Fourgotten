@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/good end.png-8851e84f9fef2dff880cb31b1171f43c.stex"
+path="res://.import/cruel end.png-945c3c39b6141711bdb7a256131ffeee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/doors/MainDoor/good end.png"
-dest_files=[ "res://.import/good end.png-8851e84f9fef2dff880cb31b1171f43c.stex" ]
+source_file="res://common/effects/endscreen/cruel end.png"
+dest_files=[ "res://.import/cruel end.png-945c3c39b6141711bdb7a256131ffeee.stex" ]
 
 [params]
 
@@ -20,15 +20,15 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

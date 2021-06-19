@@ -30,6 +30,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Bedroom garbage chute"
 message = "Press 'E' to interact with garbage chute"
+collected = ""
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -44,7 +45,6 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.8
 one_shot = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]

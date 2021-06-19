@@ -8,7 +8,7 @@ func interact(body : Player) -> void:
   if body.tools.has("Recipe") and !item_collected:
     Util.swap_message(body.number, collected)
     body.erase_tool("Recipe")
-    body.collect_tool("Red key")
+    body.collect_tool(tool_name)
     other_pulley.load_recipe_book()
 
     # Activate the red card passage

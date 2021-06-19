@@ -54,6 +54,8 @@ func _input(event : InputEvent) -> void:
 func switch_to_player(i):
   for j in range(PLAYERS): # Ensure all other players are false
     players[j].current = false
+  if i == -1:
+    return
   players[i].current = true
   active_player = i
   Util.player = i

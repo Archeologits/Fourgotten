@@ -16,6 +16,6 @@ func interact(body : Player) -> void:
   elif !item_collected:
     # Blue picks up the book from the pantry
     Util.swap_message(body.number, collected)
-    body.collect_tool("Recipe")
+    body.collect_tool(tool_name)
     item_collected = true
     $Sprite.visible = false

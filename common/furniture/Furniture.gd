@@ -37,4 +37,5 @@ func _on_player_exited(body : Node2D) -> void:
     Util.pop_message(body.number)
     body.interactible = null
     if item_collected:
+      $Interact.queue_free()
       interactible = false

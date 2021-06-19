@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://gui/PauseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/player2/Player2.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://common/furniture/pulley/BluePulley.tscn" type="PackedScene" id=31]
 [ext_resource path="res://common/items/passage/RedCardPassage.tscn" type="PackedScene" id=32]
 [ext_resource path="res://sounds/awesome_music.wav" type="AudioStream" id=33]
+[ext_resource path="res://common/effects/endscreen/EndScreen.tscn" type="PackedScene" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 60 )
@@ -251,13 +252,15 @@ shape = SubResource( 5 )
 position = Vector2( 1536, 1148.52 )
 
 [node name="Player0" parent="." instance=ExtResource( 3 )]
-position = Vector2( 669.883, 993.713 )
+position = Vector2( 672.242, 981.965 )
 
 [node name="Player1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1758.84, 390.501 )
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2289.03, 876.245 )
+
+[node name="EndScreen" parent="." instance=ExtResource( 34 )]
 
 [node name="BlackScreen" parent="." instance=ExtResource( 8 )]
 
@@ -316,5 +319,6 @@ bus = "Effects"
 
 [connection signal="opened" from="Rooms/BlueRoom/PantryDoor" to="Rooms/BlueRoom/Roof" method="_on_door_opened"]
 [connection signal="opened" from="Rooms/RedRoom/StudyRoomDoor" to="Rooms/RedRoom/Roof" method="_on_door_opened"]
+[connection signal="opened" from="Rooms/MainRoom/MainDoor" to="EndScreen" method="_on_MainDoor_opened"]
 [connection signal="merge" from="Player0" to="." method="_on_merge"]
 [connection signal="merge" from="Player2" to="." method="_on_merge"]

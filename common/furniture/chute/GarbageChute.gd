@@ -25,5 +25,5 @@ func _open_chute(player_number : int) -> void:
   $Audio.play()
   # Emit signal first to determine if chute opened or passage opened
   emit_signal("chute_opened")
-  # Tell the player whether the chute is opened of the passage is opened
+  # Tell the player whether the chute is opened or the passage is opened
   Util.swap_message(player_number, passage_message if passage_opened else chute_message)

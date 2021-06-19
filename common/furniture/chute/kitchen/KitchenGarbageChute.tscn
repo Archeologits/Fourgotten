@@ -29,6 +29,7 @@ collision_mask = 0
 script = ExtResource( 1 )
 furniture_name = "Kitchen garbage chute"
 message = "Press 'E' to interact with garbage chute"
+collected = ""
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

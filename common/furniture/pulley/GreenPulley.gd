@@ -6,7 +6,7 @@ onready var other_pulley := get_node("../../BlueRoom/BluePulley")
 func interact(body : Player) -> void:
   if $RecipeBook.visible:
     Util.swap_message(body.number, collected)
-    body.collect_tool("Recipe")
+    body.collect_tool(tool_name)
     item_collected = true
     $RecipeBook.queue_free()
   else:
