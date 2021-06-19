@@ -63,9 +63,11 @@ func erase_tool(tool_name : String) -> void:
   if inventory.has(tool_name):
     var sprite : TextureRect = inventory.get(tool_name)
     current_scene.get_node("HUD/Inventory").remove_child(sprite)
+    inventory.erase(tool_name)
     sprite.queue_free()
 
 func update_inventory() -> void:
+  inventory.clear()
   for sprite in current_scene.get_node("HUD/Inventory").get_children():
     current_scene.get_node("HUD/Inventory").remove_child(sprite)
     sprite.queue_free()
