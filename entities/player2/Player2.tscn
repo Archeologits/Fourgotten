@@ -170,6 +170,7 @@ stream = ExtResource( 8 )
 bus = "Effects"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="Interaction" to="." method="_on_Interaction_body_entered"]

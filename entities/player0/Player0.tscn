@@ -132,6 +132,7 @@ id = "B"
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "up"
+frame = 2
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]

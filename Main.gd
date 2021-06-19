@@ -103,14 +103,13 @@ func _process(delta : float):
     previous_room = current_room
     switch_to_room(current_room)
     Sounds.playbgm(current_room)
-
   if shake_mode:
     if clock - shake_start <= shake_time:
       var angle = (clock - shake_start) / shake_time * number_of_shakes * 2 * PI
       canvas_trans.origin += shake_intensity * sin(angle) * Vector2.RIGHT
+      get_viewport().set_canvas_transform(canvas_trans)
     else:
       shake_mode = false
-  get_viewport().set_canvas_transform(canvas_trans)
 
 func get_room(pos : Vector2) -> int:
   for i in range(room_count):
@@ -126,6 +125,7 @@ func switch_to_room(i : int) -> void:
   canvas_trans.x.x = expand_ratio
   canvas_trans.y.y = expand_ratio
   canvas_trans.origin = -rooms[i].position * expand_ratio
+  get_viewport().set_canvas_transform(canvas_trans)
 
 func screen_shake() -> void:
   if clock - shake_start > shake_break + shake_time:

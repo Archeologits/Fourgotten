@@ -6,7 +6,6 @@ export (String) var id : String = ""
 export (int, 0, 2) var number : int = 0
 export (int, 0, 2000) var speed : int = 400
 export (int, 0, 4000) var acceleration : int = 2000
-export (int, 0, 100) var max_health : int = 100
 export (bool) var current : bool = true
 
 var body : AnimatedSprite
@@ -36,26 +35,27 @@ func collect_tool(tool_name : String) -> void:
     weird_food_counter += 1
     if weird_food_counter == 3:
       weird_food_counter = 0 # This is a safety precaution
-      $Timer.start()
-      yield($Timer, "timeout")
-      Util.push_message(number, "Made weird food")
-      erase_tool("Burnt bread")
-      erase_tool("Rotten meat")
-      erase_tool("Wine")
-      collect_tool("Weird food")
-      Util.update_inventory()
-      $Timer.start()
-      yield($Timer, "timeout")
-      Util.pop_message(number)
+      make_weird_food()
+
+func make_weird_food() -> void:
+  $Timer.start()
+  yield($Timer, "timeout")
+  Util.push_message(number, "Made weird food")
+  erase_tool("Burnt bread")
+  erase_tool("Rotten meat")
+  erase_tool("Wine")
+  collect_tool("Weird food")
+  Util.update_inventory()
+  $Timer.start()
+  yield($Timer, "timeout")
+  Util.pop_message(number)
 
 func erase_tool(tool_name : String) -> void:
   tools.erase(tool_name)
   Util.erase_tool(tool_name)
 
-func _process(_delta : float) -> void:
-  _handle_input()
-
 func _physics_process(delta : float) -> void:
+  _handle_input()
   _apply_movement(delta)
 
 func _input(event) -> void:

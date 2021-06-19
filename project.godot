@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://common/effects/transition/BlackScreen.gd"
 }, {
+"base": "Camera2D",
+"class": "CameraX",
+"language": "GDScript",
+"path": "res://common/hud/camerax.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "Door",
 "language": "GDScript",
@@ -61,6 +66,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BlackScreen": "",
+"CameraX": "",
 "Door": "",
 "Furniture": "",
 "GarbageChute": "",
@@ -81,7 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://common/Globals.gd"
-Util="*res://Util.gd"
+Util="*res://common/Util.gd"
 Sounds="*res://sounds/Sounds.gd"
 
 [display]

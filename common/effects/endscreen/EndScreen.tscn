@@ -25,12 +25,6 @@ tracks/0/keys = {
 
 [node name="EndScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
-streams = {
-"cold end": ExtResource( 2 ),
-"cruel end": ExtResource( 4 ),
-"good end": ExtResource( 3 ),
-"true end": ExtResource( 5 )
-}
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 1, 1, 1, 0 )
@@ -64,6 +58,7 @@ root_node = NodePath("../CanvasModulate")
 anims/fade = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
 script = ExtResource( 6 )
 sounds = {
 "cold end": ExtResource( 2 ),

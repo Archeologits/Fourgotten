@@ -40,8 +40,8 @@ func _input(event : InputEvent) -> void:
       _show_buttons() # show buttons after the animation finishes
 
 func _continue() -> void:
-  get_tree().paused = false
   animation_player.play_backwards("fade")  
+  get_tree().paused = false
 
 func _new_game(delay : float = 0.5) -> void:
   yield(get_tree().create_timer(delay), "timeout")

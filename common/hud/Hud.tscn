@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/assets/panel.png" type="Texture" id=1]
 [ext_resource path="res://gui/tres/guitheme.tres" type="Theme" id=2]
 [ext_resource path="res://gui/tres/guifont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://common/hud/15. TEXT BOX SOUND MASTER.wav" type="AudioStream" id=4]
+[ext_resource path="res://common/hud/camerax.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -13,6 +15,40 @@ margin_top = 21.0
 margin_bottom = 21.0
 
 [node name="HUD" type="CanvasLayer"]
+
+[node name="Players" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Players"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Players/ViewportContainer"]
+size = Vector2( 50, 50 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera2D" parent="Players/ViewportContainer/Viewport"]
+current = true
+zoom = Vector2( 0.2, 0.2 )
+script = ExtResource( 5 )
 
 [node name="Inventory" type="HBoxContainer" parent="."]
 margin_left = 664.0
@@ -48,3 +84,8 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[node name="PopupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+bus = "Effects"

@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 export (String) var path : String = "res://common/effects/endscreen/"
-export (Dictionary) var streams : Dictionary
 
 func _on_MainDoor_opened(player : Player) -> void:
 #  sprite.texture = ImageTexture.new().create_from_image(load(path + "cold end.png"))
@@ -18,6 +17,5 @@ func _on_MainDoor_opened(player : Player) -> void:
   $CenterContainer/TextureRect.texture = load(path + ending + ".png")
   $AnimationPlayer.play("fade")
   Sounds.stop()
-#  $AnimationPlayer.stream = streams[ending]
   $AudioStreamPlayer._play(ending)
   get_parent().switch_to_player(-1)
