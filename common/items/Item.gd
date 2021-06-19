@@ -12,6 +12,8 @@ var interactible : bool = true
 var last_player : Player
 
 func _ready() -> void:
+  collision_layer = 0
+  collision_mask = 2
   connect("body_entered", self, "_on_player_entered")
   connect("body_exited", self, "_on_player_exited")
 

@@ -12,6 +12,10 @@ var interactible : bool = true
 var last_player : Player
 
 func _ready() -> void:
+  collision_layer = 1
+  collision_mask = 0
+  $Interact.collision_layer = 0
+  $Interact.collision_mask = 2
   $Interact.connect("body_entered", self, "_on_player_entered")
   $Interact.connect("body_exited", self, "_on_player_exited")
 
