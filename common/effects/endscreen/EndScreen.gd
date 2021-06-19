@@ -7,9 +7,9 @@ func _on_MainDoor_opened(player : Player) -> void:
   var ending : String
   match player.id:
     "B":
-      ending = "cruel end"
-    "RB":
       ending = "cold end"
+    "RB":
+      ending = "cruel end"
     "RGB":
       ending = "good end"
   $ColorRect.rect_size = get_viewport().size
