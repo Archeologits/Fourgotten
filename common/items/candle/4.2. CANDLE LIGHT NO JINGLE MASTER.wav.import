@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/4.2. CANDLE LIGHT NO JINGLE MASTER.wav-b9b7a1c8097e9c41c6d14d528018598e.sample"
+
+[deps]
+
+source_file="res://common/items/candle/4.2. CANDLE LIGHT NO JINGLE MASTER.wav"
+dest_files=[ "res://.import/4.2. CANDLE LIGHT NO JINGLE MASTER.wav-b9b7a1c8097e9c41c6d14d528018598e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/1. FOOTSTEP MASTER.wav-68c1b2b284de93a928382666ec8c75d2.sample"
+
+[deps]
+
+source_file="res://entities/audio/1. FOOTSTEP MASTER.wav"
+dest_files=[ "res://.import/1. FOOTSTEP MASTER.wav-68c1b2b284de93a928382666ec8c75d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

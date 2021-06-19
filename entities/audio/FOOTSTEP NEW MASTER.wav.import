@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FOOTSTEP NEW MASTER.wav-0309a1297508e414fae1360db5e15f84.sample"
+
+[deps]
+
+source_file="res://entities/audio/FOOTSTEP NEW MASTER.wav"
+dest_files=[ "res://.import/FOOTSTEP NEW MASTER.wav-0309a1297508e414fae1360db5e15f84.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

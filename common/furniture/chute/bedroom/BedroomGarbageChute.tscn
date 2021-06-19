@@ -3,7 +3,7 @@
 [ext_resource path="res://common/furniture/chute/bedroom/BedroomGarbageChute.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/chute/bedroom/chute_open.png" type="Texture" id=2]
 [ext_resource path="res://common/furniture/chute/bedroom/chute_closed.png" type="Texture" id=3]
-[ext_resource path="res://sounds/effects/garbage_chute.wav" type="AudioStream" id=4]
+[ext_resource path="res://common/furniture/chute/bedroom/20. GARBAGE CHUTE OPEN MASTER.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

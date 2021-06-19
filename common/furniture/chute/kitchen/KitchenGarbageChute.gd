@@ -30,6 +30,9 @@ func interact(body : Player) -> void:
       body.collect_tool("Wine")
       body.collect_tool("Rotten meat")
       tools.clear()
+      $Timer.start()
+      yield($Timer, "timeout")
+      $Interact.queue_free()
     elif tools.has("Wine"):
       Util.swap_message(body.number, "Found wine!")
       body.collect_tool("Wine")

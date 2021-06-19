@@ -2,7 +2,7 @@
 
 [ext_resource path="res://common/furniture/pulley/BluePulley.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/pulley/Dining Pulley.png" type="Texture" id=2]
-[ext_resource path="res://sounds/effects/pulley.wav" type="AudioStream" id=3]
+[ext_resource path="res://common/furniture/pulley/21. PULLEY SYSTEM CREAK MASTER.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50, 44 )

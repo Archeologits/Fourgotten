@@ -2,7 +2,7 @@
 
 [ext_resource path="res://common/furniture/Furniture.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/Fridge/fridge.png" type="Texture" id=2]
-[ext_resource path="res://sounds/effects/8. CLOSE FRIDGE DOOR MASTER.wav" type="AudioStream" id=3]
+[ext_resource path="res://common/furniture/Fridge/8. CLOSE FRIDGE DOOR MASTER.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.2497, 32.2169 )

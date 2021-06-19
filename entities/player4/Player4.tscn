@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/player4/textures/rgb_left.PNG" type="Texture" id=5]
 [ext_resource path="res://entities/player4/textures/rgb_down.PNG" type="Texture" id=6]
 [ext_resource path="res://entities/player4/textures/rgb_right.PNG" type="Texture" id=7]
-[ext_resource path="res://sounds/effects/new_footstep.wav" type="AudioStream" id=8]
+[ext_resource path="res://entities/audio/FOOTSTEP NEW MASTER.wav" type="AudioStream" id=8]
 [ext_resource path="res://entities/Walk.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]

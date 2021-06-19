@@ -3,7 +3,7 @@
 [ext_resource path="res://common/doors/BlueDoor/door2_open.png" type="Texture" id=1]
 [ext_resource path="res://common/doors/BlueDoor/door2_closed.png" type="Texture" id=2]
 [ext_resource path="res://common/doors/Door.gd" type="Script" id=3]
-[ext_resource path="res://sounds/effects/16. DOOR OPENS MASTER.wav" type="AudioStream" id=4]
+[ext_resource path="res://common/doors/16. DOOR OPENS MASTER.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://common/furniture/Furniture.gd" type="Script" id=1]
 [ext_resource path="res://common/furniture/Bed/bed.png" type="Texture" id=2]
-[ext_resource path="res://sounds/effects/lighter_use.wav" type="AudioStream" id=3]
+[ext_resource path="res://common/furniture/Bed/3. USE LIGHTER MASTER.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.0067, 14.6762 )

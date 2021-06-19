@@ -3,7 +3,7 @@
 [ext_resource path="res://common/furniture/Oven/oven_on.png" type="Texture" id=1]
 [ext_resource path="res://common/furniture/Oven/oven_off.png" type="Texture" id=2]
 [ext_resource path="res://common/furniture/Oven/Oven.gd" type="Script" id=3]
-[ext_resource path="res://sounds/effects/5. LIGHT OVEN MASTER.wav" type="AudioStream" id=4]
+[ext_resource path="res://common/furniture/Oven/5. LIGHT OVEN MASTER.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

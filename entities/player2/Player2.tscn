@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/player2/textures/green_right.PNG" type="Texture" id=5]
 [ext_resource path="res://entities/player2/textures/green_down.PNG" type="Texture" id=6]
 [ext_resource path="res://entities/player2/textures/green_left.PNG" type="Texture" id=7]
-[ext_resource path="res://sounds/effects/new_footstep.wav" type="AudioStream" id=8]
+[ext_resource path="res://entities/audio/FOOTSTEP NEW MASTER.wav" type="AudioStream" id=8]
 [ext_resource path="res://entities/Walk.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -134,6 +134,7 @@ current = false
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "up"
+frame = 1
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]
