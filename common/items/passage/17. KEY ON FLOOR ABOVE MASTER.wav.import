@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/17. KEY ON FLOOR ABOVE MASTER.wav-e8888815b13a4dd0925afa82f6984e58.sample"
+
+[deps]
+
+source_file="res://common/items/passage/17. KEY ON FLOOR ABOVE MASTER.wav"
+dest_files=[ "res://.import/17. KEY ON FLOOR ABOVE MASTER.wav-e8888815b13a4dd0925afa82f6984e58.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -16,6 +16,7 @@ func interact(body : Player) -> void:
     position = destination.position
     $Sprite.visible = true
     $Light.enabled = false
+    $Audio.play()
     key_sent = true
     # Change the message (used by Item when red player enters collision)
     message = "Press 'E' to pick up red key"
