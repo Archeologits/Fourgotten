@@ -29,8 +29,11 @@ func interact(body : Player) -> void:
       other_chute.tools.push_back("Wine")
       other_chute.tools.push_back("Rotten meat")
       body.erase_tool("Wine")
-      body.erase_tool("Rotten meat")      
+      body.erase_tool("Rotten meat")
       Util.swap_message(body.number, "Wine and rotten meat are in garbage chute")
+      $Timer.start()
+      yield($Timer, "timeout")
+      $Interact.queue_free()
     elif body.tools.has("Wine"):
       other_chute.tools.push_back("Wine") 
       body.erase_tool("Wine")

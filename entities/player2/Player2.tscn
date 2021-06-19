@@ -134,7 +134,7 @@ current = false
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "up"
-frame = 1
+frame = 3
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]
