@@ -100,9 +100,11 @@ func merge_into(a : Player, b : Player, c : Player):
 func _process(delta : float):
   clock += delta
   room = get_room(players[active_player].position)
-  Sounds.playbgm(room)
-  if Globals.data[active_player]["room"] != room:
-    Globals.data[active_player]["room"] = room
+  if room != last_room:
+    last_room = room
+    Sounds.playbgm(room)
+#  if Globals.data[active_player]["room"] != room:
+#    Globals.data[active_player]["room"] = room
   var rect = rooms_rects[room - 1]
   var screen_size = get_viewport().size
   var canvas_trans = get_viewport().get_canvas_transform()
@@ -124,8 +126,8 @@ func _process(delta : float):
 func get_room(pos : Vector2) -> int:
   for i in range(0, ROOMS):
     if rooms_rects[i].has_point(pos):
-      last_room = i + 1
-      return last_room
+#      last_room = i + 1
+      return i + 1
   return last_room
 
 func screen_shake() -> bool:

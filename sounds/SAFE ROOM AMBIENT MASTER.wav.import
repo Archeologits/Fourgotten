@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SAFE ROOM AMBIENT MASTER.wav-6c9034b7ee261ae497f24e2de96682d2.sample"
+
+[deps]
+
+source_file="res://sounds/SAFE ROOM AMBIENT MASTER.wav"
+dest_files=[ "res://.import/SAFE ROOM AMBIENT MASTER.wav-6c9034b7ee261ae497f24e2de96682d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

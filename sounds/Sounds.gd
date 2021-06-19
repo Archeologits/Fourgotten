@@ -1,26 +1,33 @@
 extends Node
 
-var sounds : Dictionary
+#var sounds : Dictionary
 var bgm : Dictionary
 
 var last_played = ""
 
 func _ready():
-  bgm["theme"] = preload("res://sounds/awesome_music.wav")
-  bgm["main_theme"] = preload("res://sounds/main_music.wav")
-
+#  bgm["theme"] = preload("res://sounds/awesome_music.wav")
+#  bgm["main_theme"] = preload("res://sounds/main_music.wav")
+  bgm[1] = preload("res://sounds/BLUE ROOM MASTER.wav")
+  bgm[2] = preload("res://sounds/GREEN ROOM MASTER.wav")
+  bgm[3] = preload("res://sounds/RED ROOM MASTER.wav")
+  bgm[4] = preload("res://sounds/main_music.wav")
+  
 var last_room = -1
 
 func playbgm(room):
   var play = Util.current_scene.get_node("BackgroundMusic")
-  if room == 4 and last_room != 4:
-    play.stop()
-    play.stream = bgm["main_theme"]    
-    play.play()
-  elif room != 4 and last_room == 4:
-    play.stop()
-    play.stream = bgm["theme"]
-    play.play()
+  play.stop()
+  play.stream = bgm[room]
+  play.play()
+#  if room == 4 and last_room != 4:
+#    play.stop()
+#    play.stream = bgm["main_theme"]
+#    play.play()
+#  elif room != 4 and last_room == 4:
+#    play.stop()
+#    play.stream = bgm["theme"]
+#    play.play()
   last_room = room
 
 func stop():

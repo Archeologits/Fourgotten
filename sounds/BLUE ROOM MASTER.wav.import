@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BLUE ROOM MASTER.wav-b158f54517ff06fc43bd914ae6f38081.sample"
+
+[deps]
+
+source_file="res://sounds/BLUE ROOM MASTER.wav"
+dest_files=[ "res://.import/BLUE ROOM MASTER.wav-b158f54517ff06fc43bd914ae6f38081.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
