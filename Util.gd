@@ -59,10 +59,11 @@ func push_tool(tool_name : String) -> void:
   var sprite := TextureRect.new()
   sprite.texture = texture
   current_scene.get_node("HUD/Inventory").add_child(sprite)
+  inventory[tool_name] = sprite
 
 func erase_tool(tool_name : String) -> void:
-  if current_scene.get_node("HUD/Inventory").has_node(tool_name):
-    var sprite = current_scene.get_node("HUD/Inventory").get_node(tool_name)
+  if inventory.has(tool_name):
+    var sprite : TextureRect = inventory.get(tool_name)
     current_scene.get_node("HUD/Inventory").remove_child(sprite)
     sprite.queue_free()
 

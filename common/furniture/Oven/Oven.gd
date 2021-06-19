@@ -22,6 +22,7 @@ func interact(body : Player) -> void:
   elif !item_collected:
     if body.tools.has("Stuffed crow"):
       Util.swap_message(body.number, collected)
+      body.erase_tool("Stuffed crow")
       body.collect_tool(tool_name)
       item_collected = true
     else:
