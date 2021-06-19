@@ -84,9 +84,11 @@ func merge_into(a : Player, b : Player, c : Player):
   for item in b.tools:
     c.tools.append(item)
   c.position = (a.position + b.position)/2
-  remove_child(a)
-  remove_child(b)
-  add_child(c)
+#  remove_child(a)
+#  remove_child(b)
+  call_deferred("remove_child", a)
+  call_deferred("remove_child", b)
+  call_deferred("add_child", c)
   players[c.number] = c
   switch_to_player(c.number)
   merges += 1

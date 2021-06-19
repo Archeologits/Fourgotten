@@ -43,6 +43,7 @@ func collect_tool(tool_name : String) -> void:
       erase_tool("Rotten meat")
       erase_tool("Wine")
       collect_tool("Weird food")
+      Util.update_inventory()
       $Timer.start()
       yield($Timer, "timeout")
       Util.pop_message(number)

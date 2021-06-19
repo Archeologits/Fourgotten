@@ -74,7 +74,6 @@ position = Vector2( 895.636, 1024.18 )
 
 [node name="Crow" parent="Rooms/BlueRoom" instance=ExtResource( 23 )]
 position = Vector2( 321.225, 707.189 )
-z_index = -1
 
 [node name="Candle1" parent="Rooms/BlueRoom" instance=ExtResource( 14 )]
 position = Vector2( 304.741, 907.209 )
@@ -202,7 +201,7 @@ __meta__ = {
 [node name="GreenRoom" type="Node" parent="Rooms"]
 
 [node name="KitchenGarbageChute" parent="Rooms/GreenRoom" instance=ExtResource( 19 )]
-position = Vector2( 2240.04, 693.521 )
+position = Vector2( 2240.24, 702.055 )
 
 [node name="Fridge" parent="Rooms/GreenRoom" instance=ExtResource( 10 )]
 position = Vector2( 2462.05, 737.533 )
@@ -228,6 +227,7 @@ position = Vector2( 2091.33, 927.951 )
 scale = Vector2( -1.35, -1.35 )
 
 [node name="Walls" type="StaticBody2D" parent="Rooms/GreenRoom"]
+visible = false
 position = Vector2( 2900, 700 )
 collision_mask = 0
 

@@ -14,7 +14,7 @@ func _ready():
     candle.connect("candle_on", self, "_on_candle_on")
     candle.connect("candle_off", self, "_on_candle_off")    
 
-func _on_candle_on() -> void:
+func _on_candle_on(_player : Player) -> void:
   candle_count += 1
   if candle_count == max_candle_count:
     $Collision.disabled = false

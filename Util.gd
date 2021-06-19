@@ -48,28 +48,27 @@ func _update_message() -> void:
 # Inventory
 #===============================================================================
 
-func update_inventory() -> void:
-  for tool_name in inventory.keys():
-    erase_tool(tool_name) # Is this safe?
-  for tool_name in Util.get_player().tools:
-    push_tool(tool_name)
-
 func push_tool(tool_name : String) -> void:
   var loaded = load("res://tool_images/" + tool_name + ".png")
   if loaded == null:
     return
   var image = loaded.get_data()
   image.resize(32, 32)
-  var texture = ImageTexture.new()
+  var texture := ImageTexture.new()
   texture.create_from_image(image)
-  var sprite = TextureRect.new()
+  var sprite := TextureRect.new()
   sprite.texture = texture
   current_scene.get_node("HUD/Inventory").add_child(sprite)
-  inventory[tool_name] = sprite
 
 func erase_tool(tool_name : String) -> void:
-  var sprite = inventory.get(tool_name)
-  if sprite == null:
-    return
-  current_scene.get_node("HUD/Inventory").remove_child(sprite)
-  inventory.erase(sprite)
+  if current_scene.get_node("HUD/Inventory").has_node(tool_name):
+    var sprite = current_scene.get_node("HUD/Inventory").get_node(tool_name)
+    current_scene.get_node("HUD/Inventory").remove_child(sprite)
+    sprite.queue_free()
+
+func update_inventory() -> void:
+  for sprite in current_scene.get_node("HUD/Inventory").get_children():
+    current_scene.get_node("HUD/Inventory").remove_child(sprite)
+    sprite.queue_free()
+  for tool_name in Util.get_player().tools:
+    push_tool(tool_name)
