@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://common/doors/MainDoor/maindoor_closed.png" type="Texture" id=1]
+[ext_resource path="res://common/doors/Door.gd" type="Script" id=1]
 [ext_resource path="res://common/doors/MainDoor/maindoor_open.png" type="Texture" id=2]
-[ext_resource path="res://common/doors/Door.gd" type="Script" id=3]
+[ext_resource path="res://common/doors/MainDoor/maindoor_closed.png" type="Texture" id=3]
 [ext_resource path="res://common/doors/Audio/16. DOOR OPENS MASTER.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -12,7 +12,7 @@ animations = [ {
 "name": "open",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "closed",
 "speed": 5.0
@@ -31,7 +31,7 @@ polygon = PoolVector2Array( -50, 15, 50, 15, 50, -30, -50, -30 )
 scale = Vector2( 2, 1 )
 frames = SubResource( 1 )
 animation = "closed"
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 door_name = "Main Door"
 confirmed = false
 ask_again = true
