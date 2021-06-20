@@ -30,8 +30,23 @@ func set_player_switcher(world : World2D, game : Node2D) -> void:
     cameras.push_back(viewports[i].get_node("CameraX"))
     cameras[i].target = game.players[i]
 
-func merge_players():
-  pass
+func _input(event : InputEvent) -> void:
+  if event is InputEventMouseButton:
+    for i in range(Globals.mergers, Globals.player_count):
+      if Globals.player != i and players[i].get_global_rect().has_point(event.position):
+        game.black_screen.fade()
+        yield(game.black_screen.animation_player, "animation_finished")
+        game.switch_to_player(i)
+        game.black_screen.unfade()
+
+func merge_players(a : int, b : int, c : Player) -> void:
+  players[a].visible = false
+  cameras[b].target = c
+  # This is a hack to resize the underlying container
+  $Players.hide()
+  $Players.show()
+  players[a].queue_free()
+
 #===============================================================================
 # Popup messages
 #===============================================================================
@@ -100,18 +115,3 @@ func update_inventory() -> void:
     sprite.queue_free()
   for tool_name in Util.get_player().tools:
     push_tool(tool_name)
-
-
-func _on_player0_clicked(event : InputEvent):
-  print(":oi")
-  if event is InputEventMouseButton:
-    print("I've been clicked D:")
-  if event.is_action_pressed("left_click"):
-    game.switch_to_player(0)
-
-
-func _input(event : InputEvent) -> void:
-  if event is InputEventMouseButton:
-    for i in range(Globals.player_count):
-      if players[i].get_global_rect().has_point(event.position):
-        game.switch_to_player(i)

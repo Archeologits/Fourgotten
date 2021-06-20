@@ -79,6 +79,12 @@ __meta__ = {
 [node name="Walls" type="CollisionPolygon2D" parent="Rooms/BlueRoom/Walls"]
 polygon = PoolVector2Array( -115, 400, 940, 400, 940, 220, 850, 220, 850, 340, -50, 340, -50, 80, 80, 80, 80, 10, 520, 10, 520, 80, 580, 80, 580, 140, 650, 140, 650, 80, 600, 80, 600, 5, 850, 5, 850, 80, 720, 80, 720, 140, 940, 140, 940, -140, -115, -140 )
 
+[node name="Occluder" type="LightOccluder2D" parent="Rooms/BlueRoom"]
+light_mask = 3
+position = Vector2( 115, 751 )
+occluder = SubResource( 1 )
+light_mask = 3
+
 [node name="Overcast" type="Light2D" parent="Rooms/BlueRoom"]
 position = Vector2( 496.129, 881.497 )
 scale = Vector2( 0.917881, 0.5 )
@@ -96,12 +102,6 @@ visible = false
 position = Vector2( 717.685, 1089.57 )
 offset = Vector2( 1.59637, -6.0636 )
 energy = 0.8
-
-[node name="Occluder" type="LightOccluder2D" parent="Rooms/BlueRoom"]
-light_mask = 3
-position = Vector2( 115, 751 )
-occluder = SubResource( 1 )
-light_mask = 3
 
 [node name="Chest" parent="Rooms/BlueRoom" instance=ExtResource( 24 )]
 position = Vector2( 112.664, 1045.64 )
@@ -296,7 +296,7 @@ position = Vector2( 1536, 1153.52 )
 [node name="EndScreen" parent="." instance=ExtResource( 34 )]
 
 [node name="Player0" parent="." instance=ExtResource( 3 )]
-position = Vector2( 672.242, 981.965 )
+position = Vector2( 679.338, 983.454 )
 
 [node name="Player1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1758.84, 390.501 )
@@ -349,9 +349,6 @@ stream = ExtResource( 33 )
 volume_db = 0.5
 autoplay = true
 bus = "Music"
-
-[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
-bus = "Effects"
 
 [connection signal="opened" from="Rooms/BlueRoom/PantryDoor" to="Rooms/BlueRoom/Roof" method="_on_door_opened"]
 [connection signal="opened" from="Rooms/RedRoom/StudyRoomDoor" to="Rooms/RedRoom/Roof" method="_on_door_opened"]

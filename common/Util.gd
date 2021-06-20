@@ -9,6 +9,9 @@ func shake():
 func get_player():
   return game.players[Globals.player]
 
+func merge_players(a : int, b : int, c : Player) -> void:
+  hud.merge_players(a, b, c)
+
 #===============================================================================
 # Popup messages
 #===============================================================================

@@ -1,10 +1,10 @@
 extends Node2D
 
 # Member variables
-export var number_of_shakes = 3
-export var shake_intensity = 10
-export var shake_break = 1
-export var shake_time = 0.5
+export var number_of_shakes : int = 3
+export var shake_intensity : int = 10
+export var shake_break : float = 1
+export var shake_time : float = 0.5
 
 onready var black_screen : BlackScreen = $BlackScreen
 onready var canvas_trans := get_viewport().get_canvas_transform()
@@ -32,26 +32,24 @@ func start() -> void:
   for i in range(Globals.room_count):
     rooms.append(get_node("Room" + str(i)).get_rect())
   black_screen.unfade()
-  Globals.player = 0
 
 func _input(event : InputEvent) -> void:
-  for i in range(Globals.player_count):
-    if event.is_action_pressed("player%s" % i):
+  for i in range(Globals.mergers, Globals.player_count):
+    if Globals.player != i and event.is_action_pressed("player%s" % i):
+      black_screen.fade()
+      yield(black_screen.animation_player, "animation_finished")
       switch_to_player(i)
+      black_screen.unfade()
 
 func switch_to_player(i : int) -> void:
-  if Globals.player != i and i >= merges:
-    for j in range(Globals.player_count): # Ensure all other players are false
-      players[j].current = false
-    if i == -1: # Used by end-screen to "incapacitate" all players
-      return
-    black_screen.fade()
-    yield(black_screen.animation_player, "animation_finished")
-    players[i].current = true
-    Globals.player = i
-    Util.update_message()
-    Util.update_inventory()
-    black_screen.unfade()
+  for j in range(Globals.mergers, Globals.player_count):
+    players[j].current = false
+  if i == -1: # Used by end-screen to "incapacitate" all players
+    return
+  players[i].current = true
+  Globals.player = i
+  Util.update_message()
+  Util.update_inventory()
 
 #===============================================================================
 # Merging players
@@ -60,10 +58,12 @@ func switch_to_player(i : int) -> void:
 func _on_merge(player1 : Player, player2 : Player) -> void:
   if checkid(player1, player2, "R", "B"):
     Util.swap_base_message("Press 2 for blue/red, press 3 for green!")
-    merge_into(players[0], players[1], player3)
+    merge_into(player1, player2, player3)
+    Util.merge_players(0, 1, player3)
   elif checkid(player1, player2, "RB", "G"):
     Util.swap_base_message("All friends are reunited!")    
-    merge_into(players[2], players[1], player4)
+    merge_into(player1, player2, player4)
+    Util.merge_players(1, 2, player4)
 
 func checkid(a : Player, b : Player, x : String, y : String) -> bool:
   return (a.id == x and b.id == y) or (a.id == y and b.id == x)
@@ -80,7 +80,7 @@ func merge_into(a : Player, b : Player, c : Player):
   call_deferred("add_child", c)
   players[c.number] = c
   switch_to_player(c.number)
-  merges += 1
+  Globals.mergers += 1
 
 #===============================================================================
 # Switching rooms

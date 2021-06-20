@@ -3,7 +3,8 @@ extends Node
 # Member variables
 var room_count : int = 4
 var player_count : int = 3
-var player : int = -1
+var player : int = 0
+var mergers : int = 0
 
 var data : Dictionary = {}
 
