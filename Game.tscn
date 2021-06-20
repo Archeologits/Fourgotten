@@ -35,16 +35,16 @@
 [ext_resource path="res://sounds/awesome_music.wav" type="AudioStream" id=33]
 [ext_resource path="res://common/effects/endscreen/EndScreen.tscn" type="PackedScene" id=34]
 
-[sub_resource type="OccluderPolygon2D" id=6]
+[sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -100, 450, 930, 450, 930, 220, 850, 220, 850, 350, -50, 350, -50, -110, 590, -110, 590, 100, 650, 100, 650, 80, 600, 80, 600, -110, 850, -110, 850, 80, 720, 80, 720, 100, 850, 100, 850, 140, 940, 140, 940, -150, -100, -150 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 160, 60 )
 
-[sub_resource type="OccluderPolygon2D" id=7]
+[sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 1030, 570, 1500, 570, 1500, 520, 1080, 520, 1080, 340, 1400, 340, 1400, 400, 1400, 400, 1410, 400, 1410, 320, 1080, 320, 1080, 60, 1400, 60, 1400, 200, 1410, 200, 1410, 60, 1990, 60, 1990, 520, 1570, 520, 1570, 570, 2040, 570, 2040, 0, 1030, 0 )
 
-[sub_resource type="OccluderPolygon2D" id=8]
+[sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( 1409, 164, 1470, 164, 1470, 90, 1570, 90, 1570, 154, 1661, 154, 1661, 225, 1663, 225, 1663, 200, 1695, 160, 1695, 90, 1795, 90, 1795, 157, 1984, 157, 1984, 64, 1409, 64 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -100,7 +100,7 @@ energy = 0.8
 [node name="Occluder" type="LightOccluder2D" parent="Rooms/BlueRoom"]
 light_mask = 3
 position = Vector2( 115, 751 )
-occluder = SubResource( 6 )
+occluder = SubResource( 1 )
 light_mask = 3
 
 [node name="Chest" parent="Rooms/BlueRoom" instance=ExtResource( 24 )]
@@ -112,7 +112,7 @@ position = Vector2( 416.791, 888.098 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/BlueRoom/Table"]
 position = Vector2( 0, 3.36365 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="BluePulley" parent="Rooms/BlueRoom" instance=ExtResource( 31 )]
 position = Vector2( 895.636, 1024.18 )
@@ -159,11 +159,11 @@ polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690
 
 [node name="Occluder" type="LightOccluder2D" parent="Rooms/RedRoom"]
 light_mask = 3
-occluder = SubResource( 7 )
+occluder = SubResource( 3 )
 light_mask = 3
 
 [node name="WallOcclusion" type="LightOccluder2D" parent="Rooms/RedRoom"]
-occluder = SubResource( 8 )
+occluder = SubResource( 4 )
 
 [node name="Light" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
 position = Vector2( 1519.78, 94.0528 )
