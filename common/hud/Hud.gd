@@ -22,13 +22,13 @@ func start(world : World2D, new_game : Node2D) -> void:
 # Player switcher
 #===============================================================================
 
-func set_player_switcher(world : World2D, game : Node2D) -> void:
+func set_player_switcher(new_world : World2D, new_game : Node2D) -> void:
   for i in range(Globals.player_count):
     players.push_back(get_node(PLAYER_PATH % i))
     viewports.push_back(get_node(VIEWPORT_PATH % i))
-    viewports[i].world_2d = world
+    viewports[i].world_2d = new_world
     cameras.push_back(viewports[i].get_node("CameraX"))
-    cameras[i].target = game.players[i]
+    cameras[i].target = new_game.players[i]
 
 func _input(event : InputEvent) -> void:
   if event is InputEventMouseButton:

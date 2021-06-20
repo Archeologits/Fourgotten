@@ -16,7 +16,6 @@ var players : Array = []
 var rooms : Array = []
 var current_room : int = -1
 var previous_room : int = -1
-var merges : int = 0
 
 var shake_mode : bool = false
 var shake_start : float = 0
