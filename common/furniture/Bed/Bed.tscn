@@ -5,10 +5,10 @@
 [ext_resource path="res://common/furniture/Bed/3. USE LIGHTER MASTER.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.0067, 14.6762 )
+extents = Vector2( 32, 15 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 46.8227, 27.9941 )
+extents = Vector2( 45, 28 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 32, -16, -32, -16, -32, 16, 32, 16 )

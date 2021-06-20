@@ -30,6 +30,7 @@ func interact(body : Player) -> void:
     door_opened = true
     $Collision.queue_free()
     $Interact.queue_free()
+    $Occluder.queue_free()
     $Audio.play()
     play("open")
     emit_signal("opened", body)

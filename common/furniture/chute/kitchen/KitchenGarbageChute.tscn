@@ -8,12 +8,12 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
-"loop": true,
+"loop": false,
 "name": "open",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "closed",
 "speed": 5.0
 } ]

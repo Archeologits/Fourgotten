@@ -12,7 +12,7 @@ var body : AnimatedSprite
 var static_image : Sprite
 var audio : AudioStreamPlayer2D
 
-var facing : Vector2 = Vector2.RIGHT
+var facing : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 var weird_food_counter : int = 0

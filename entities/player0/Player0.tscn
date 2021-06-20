@@ -120,7 +120,7 @@ extents = Vector2( 24, 24 )
 extents = Vector2( 50, 50 )
 
 [sub_resource type="OccluderPolygon2D" id=20]
-polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
+polygon = PoolVector2Array( -24, -24, -6.34232, -45.9783, 14.1314, -46.2933, 28.9355, -24.2447, 21.6909, -2.51103, 24, 24, -24, 24, -20.8314, -2.51103 )
 
 [node name="Player0" type="KinematicBody2D" groups=[
 "Players",
@@ -132,7 +132,7 @@ id = "B"
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
 animation = "up"
-frame = 2
+frame = 3
 playing = true
 
 [node name="StaticImage" type="Sprite" parent="."]
