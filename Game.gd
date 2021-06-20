@@ -8,7 +8,6 @@ export var shake_intensity = 10
 export var shake_break = 1
 export var shake_time = 0.5
 
-#onready var popup : PopupDialog = $HUD/Popup
 onready var black_screen : BlackScreen = $BlackScreen
 onready var canvas_trans := get_viewport().get_canvas_transform()
 
@@ -30,18 +29,17 @@ var clock : float = 0
 # Switching players
 #===============================================================================
 
-func _ready() -> void:
+func start() -> void:
   for i in range(player_count):
     players.append(get_node("Player" + str(i)))
   for i in range(room_count):
     rooms.append(get_node("Room" + str(i)).get_rect())
 
-  Util.game = self
-  Util.main = get_parent()
-  Util.hud = get_parent().get_node("HUD")  
-  Util.label = Util.main.get_node("HUD/Popup/Label")
-  Util.main.get_node("HUD/Popup").show()
-  Util.set_message_stacks(player_count)
+#  Util.game = self
+#  Util.hud = get_parent().get_node("HUD")  
+#  Util.label = Util.main.get_node("HUD/Popup/Label")
+#  Util.main.get_node("HUD/Popup").show()
+#  Util.set_message_stacks(player_count)
   black_screen.unfade()
   switch_to_player(0)
 
@@ -62,8 +60,8 @@ func switch_to_player(i : int) -> void:
   players[i].current = true
   current_player = i
   Util.player = i
-  Util._update_message()
-  Util.update_inventory()
+#  Util._update_message()
+#  Util.update_inventory()
 
 #===============================================================================
 # Merging players
