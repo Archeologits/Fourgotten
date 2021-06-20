@@ -35,17 +35,17 @@
 [ext_resource path="res://sounds/awesome_music.wav" type="AudioStream" id=33]
 [ext_resource path="res://common/effects/endscreen/EndScreen.tscn" type="PackedScene" id=34]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 160, 60 )
-
 [sub_resource type="OccluderPolygon2D" id=6]
 polygon = PoolVector2Array( -100, 450, 930, 450, 930, 220, 850, 220, 850, 350, -50, 350, -50, -110, 590, -110, 590, 100, 650, 100, 650, 80, 600, 80, 600, -110, 850, -110, 850, 80, 720, 80, 720, 100, 850, 100, 850, 140, 940, 140, 940, -150, -100, -150 )
 
-[sub_resource type="OccluderPolygon2D" id=8]
-polygon = PoolVector2Array( 1409, 164, 1470, 164, 1470, 90, 1570, 90, 1570, 150, 1660, 150, 1660, 190, 1670, 190, 1695, 160, 1695, 90, 1795, 90, 1795, 157, 1984, 157, 1984, 64, 1409, 64 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 60 )
 
 [sub_resource type="OccluderPolygon2D" id=7]
 polygon = PoolVector2Array( 1030, 570, 1500, 570, 1500, 520, 1080, 520, 1080, 340, 1400, 340, 1400, 400, 1400, 400, 1410, 400, 1410, 320, 1080, 320, 1080, 60, 1400, 60, 1400, 200, 1410, 200, 1410, 60, 1990, 60, 1990, 520, 1570, 520, 1570, 570, 2040, 570, 2040, 0, 1030, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=8]
+polygon = PoolVector2Array( 1409, 164, 1470, 164, 1470, 90, 1570, 90, 1570, 154, 1661, 154, 1661, 225, 1663, 225, 1663, 200, 1695, 160, 1695, 90, 1795, 90, 1795, 157, 1984, 157, 1984, 64, 1409, 64 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 190, 20 )
@@ -68,9 +68,51 @@ color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [node name="BlueRoom" type="Node" parent="Rooms"]
 
+[node name="Walls" type="StaticBody2D" parent="Rooms/BlueRoom"]
+visible = false
+position = Vector2( 115, 751 )
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walls" type="CollisionPolygon2D" parent="Rooms/BlueRoom/Walls"]
+polygon = PoolVector2Array( -115, 400, 940, 400, 940, 220, 850, 220, 850, 340, -50, 340, -50, 80, 80, 80, 80, 10, 520, 10, 520, 80, 580, 80, 580, 140, 650, 140, 650, 80, 600, 80, 600, 5, 850, 5, 850, 80, 720, 80, 720, 140, 940, 140, 940, -140, -115, -140 )
+
+[node name="Overcast" type="Light2D" parent="Rooms/BlueRoom"]
+position = Vector2( 496.129, 881.497 )
+scale = Vector2( 0.917881, 0.5 )
+texture = ExtResource( 16 )
+color = Color( 1, 0.980392, 0.862745, 1 )
+energy = 0.2
+
+[node name="Light" parent="Rooms/BlueRoom" instance=ExtResource( 4 )]
+position = Vector2( 304.724, 1084.71 )
+offset = Vector2( 1.59637, -6.0636 )
+energy = 0.8
+
+[node name="Light2" parent="Rooms/BlueRoom" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 717.685, 1089.57 )
+offset = Vector2( 1.59637, -6.0636 )
+energy = 0.8
+
+[node name="Occluder" type="LightOccluder2D" parent="Rooms/BlueRoom"]
+light_mask = 3
+position = Vector2( 115, 751 )
+occluder = SubResource( 6 )
+light_mask = 3
+
 [node name="Chest" parent="Rooms/BlueRoom" instance=ExtResource( 24 )]
 position = Vector2( 112.664, 1045.64 )
 scale = Vector2( 1.8, 1.5 )
+
+[node name="Table" type="StaticBody2D" parent="Rooms/BlueRoom"]
+position = Vector2( 416.791, 888.098 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/BlueRoom/Table"]
+position = Vector2( 0, 3.36365 )
+shape = SubResource( 1 )
 
 [node name="BluePulley" parent="Rooms/BlueRoom" instance=ExtResource( 31 )]
 position = Vector2( 895.636, 1024.18 )
@@ -97,57 +139,31 @@ position = Vector2( 800.232, 875.112 )
 position = Vector2( 968.472, 927.955 )
 scale = Vector2( 0.753889, 1.35 )
 
-[node name="Table" type="StaticBody2D" parent="Rooms/BlueRoom"]
-visible = false
-position = Vector2( 416.791, 888.098 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/BlueRoom/Table"]
-position = Vector2( 0, 3.36365 )
-shape = SubResource( 1 )
-
-[node name="Walls" type="StaticBody2D" parent="Rooms/BlueRoom"]
-visible = false
-position = Vector2( 115, 751 )
-collision_mask = 0
-
-[node name="Walls" type="CollisionPolygon2D" parent="Rooms/BlueRoom/Walls"]
-polygon = PoolVector2Array( -115, 400, 940, 400, 940, 220, 850, 220, 850, 340, -50, 340, -50, 80, 80, 80, 80, 10, 520, 10, 520, 80, 580, 80, 580, 140, 650, 140, 650, 80, 600, 80, 600, 5, 850, 5, 850, 80, 720, 80, 720, 140, 940, 140, 940, -140, -115, -140 )
-
-[node name="Occluder" type="LightOccluder2D" parent="Rooms/BlueRoom"]
-light_mask = 3
-position = Vector2( 115, 751 )
-occluder = SubResource( 6 )
-light_mask = 3
-
 [node name="RedKeyDestination" type="Position2D" parent="Rooms/BlueRoom"]
 position = Vector2( 1235.94, 282.541 )
 
 [node name="Roof" parent="Rooms/BlueRoom" instance=ExtResource( 22 )]
-visible = false
 margin_left = 712.683
 margin_top = 635.877
 margin_right = 1012.68
 margin_bottom = 835.877
 
-[node name="Light" parent="Rooms/BlueRoom" instance=ExtResource( 4 )]
-position = Vector2( 304.724, 1084.71 )
-offset = Vector2( 1.59637, -6.0636 )
-energy = 0.8
-
-[node name="Light2" parent="Rooms/BlueRoom" instance=ExtResource( 4 )]
-position = Vector2( 717.685, 1089.57 )
-offset = Vector2( 1.59637, -6.0636 )
-energy = 0.8
-
 [node name="RedRoom" type="Node" parent="Rooms"]
 
-[node name="WallOcclusion" type="LightOccluder2D" parent="Rooms/RedRoom"]
-occluder = SubResource( 8 )
+[node name="Walls" type="StaticBody2D" parent="Rooms/RedRoom"]
+visible = false
+collision_mask = 0
+
+[node name="Walls" type="CollisionPolygon2D" parent="Rooms/RedRoom/Walls"]
+polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690, 1490, 510, 1080, 510, 1080, 430, 1410, 430, 1410, 320, 1080, 320, 1080, 190, 1990, 190, 1990, 510, 1582, 510, 1582, 690, 1640, 730, 2010, 730, 2010, 570, 2070, 570, 2070, 0, 990, 0 )
 
 [node name="Occluder" type="LightOccluder2D" parent="Rooms/RedRoom"]
 light_mask = 3
 occluder = SubResource( 7 )
 light_mask = 3
+
+[node name="WallOcclusion" type="LightOccluder2D" parent="Rooms/RedRoom"]
+occluder = SubResource( 8 )
 
 [node name="Light" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
 position = Vector2( 1519.78, 94.0528 )
@@ -168,10 +184,6 @@ z_index = -1
 [node name="BedroomGarbageChute" parent="Rooms/RedRoom" instance=ExtResource( 18 )]
 position = Vector2( 1951.08, 478.859 )
 
-[node name="InkJar" parent="Rooms/RedRoom" instance=ExtResource( 11 )]
-position = Vector2( 1238.39, 149.002 )
-z_index = -1
-
 [node name="Candle1" parent="Rooms/RedRoom" instance=ExtResource( 14 )]
 position = Vector2( 1650.99, 481.299 )
 
@@ -187,30 +199,35 @@ position = Vector2( 1135.78, 463.949 )
 [node name="RecipeBook" parent="Rooms/RedRoom" instance=ExtResource( 17 )]
 position = Vector2( 1214.4, 284.779 )
 
+[node name="InkJar" parent="Rooms/RedRoom" instance=ExtResource( 11 )]
+position = Vector2( 1238.39, 149.002 )
+z_index = -1
+
 [node name="RedDoor" parent="Rooms/RedRoom" instance=ExtResource( 27 )]
 position = Vector2( 1536.61, 555.071 )
 
 [node name="StudyRoomDoor" parent="Rooms/RedRoom" instance=ExtResource( 1 )]
 position = Vector2( 1399.83, 230.219 )
 
-[node name="Walls" type="StaticBody2D" parent="Rooms/RedRoom"]
-visible = false
-collision_mask = 0
-
-[node name="Walls" type="CollisionPolygon2D" parent="Rooms/RedRoom/Walls"]
-polygon = PoolVector2Array( 990, 570, 1060, 570, 1060, 730, 1420, 730, 1490, 690, 1490, 510, 1080, 510, 1080, 430, 1410, 430, 1410, 320, 1080, 320, 1080, 190, 1990, 190, 1990, 510, 1582, 510, 1582, 690, 1640, 730, 2010, 730, 2010, 570, 2070, 570, 2070, 0, 990, 0 )
-
 [node name="RecipeBookDestination" type="Position2D" parent="Rooms/RedRoom"]
 position = Vector2( 803.841, 789.159 )
 
 [node name="Roof" parent="Rooms/RedRoom" instance=ExtResource( 22 )]
-visible = false
 margin_left = 1019.72
 margin_top = 56.2062
 margin_right = 1399.72
 margin_bottom = 326.206
 
 [node name="GreenRoom" type="Node" parent="Rooms"]
+
+[node name="Walls" type="StaticBody2D" parent="Rooms/GreenRoom"]
+visible = false
+position = Vector2( 2900, 700 )
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/GreenRoom/Walls"]
+position = Vector2( 0, -0.420471 )
+polygon = PoolVector2Array( -880, 280, -880, 450, 170, 450, 170, -120, -880, -120, -880, 180, -800, 180, -800, 160, -730, 160, -730, 60, -370, 60, -370, 100, -120, 100, -120, 190, 115, 190, 115, 390, -800, 390, -800, 280 )
 
 [node name="Overcast" type="Light2D" parent="Rooms/GreenRoom"]
 position = Vector2( 2546.9, 866.361 )
@@ -244,23 +261,7 @@ position = Vector2( 2976.59, 915.095 )
 position = Vector2( 2091.33, 927.951 )
 scale = Vector2( -1.35, -1.35 )
 
-[node name="Walls" type="StaticBody2D" parent="Rooms/GreenRoom"]
-visible = false
-position = Vector2( 2900, 700 )
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/GreenRoom/Walls"]
-position = Vector2( 0, -0.420471 )
-polygon = PoolVector2Array( -880, 280, -880, 450, 170, 450, 170, -120, -880, -120, -880, 180, -800, 180, -800, 160, -730, 160, -730, 60, -370, 60, -370, 100, -120, 100, -120, 190, 115, 190, 115, 390, -800, 390, -800, 280 )
-
 [node name="MainRoom" type="Node" parent="Rooms"]
-
-[node name="Overcast" type="Light2D" parent="Rooms/MainRoom"]
-position = Vector2( 1530, 860 )
-scale = Vector2( 1, 0.5 )
-texture = ExtResource( 16 )
-color = Color( 1, 0.941176, 0.784314, 1 )
-energy = 0.6
 
 [node name="Walls" type="StaticBody2D" parent="Rooms/MainRoom"]
 visible = false
@@ -274,14 +275,21 @@ shape = SubResource( 5 )
 position = Vector2( 290, 0 )
 shape = SubResource( 5 )
 
-[node name="MainDoor" parent="Rooms/MainRoom" instance=ExtResource( 6 )]
-position = Vector2( 1536, 1153.52 )
+[node name="Overcast" type="Light2D" parent="Rooms/MainRoom"]
+position = Vector2( 1530, 860 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 16 )
+color = Color( 1, 0.941176, 0.784314, 1 )
+energy = 0.6
 
 [node name="Light" parent="Rooms/MainRoom" instance=ExtResource( 15 )]
 position = Vector2( 1329.46, 653.746 )
 
 [node name="Light2" parent="Rooms/MainRoom" instance=ExtResource( 15 )]
 position = Vector2( 1742.2, 654.92 )
+
+[node name="MainDoor" parent="Rooms/MainRoom" instance=ExtResource( 6 )]
+position = Vector2( 1536, 1153.52 )
 
 [node name="BlackScreen" parent="." instance=ExtResource( 8 )]
 
