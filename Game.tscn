@@ -141,8 +141,26 @@ energy = 0.8
 
 [node name="RedRoom" type="Node" parent="Rooms"]
 
+[node name="WallOcclusion" type="LightOccluder2D" parent="Rooms/RedRoom"]
+occluder = SubResource( 8 )
+
+[node name="Occluder" type="LightOccluder2D" parent="Rooms/RedRoom"]
+light_mask = 3
+occluder = SubResource( 7 )
+light_mask = 3
+
+[node name="Light" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
+position = Vector2( 1519.78, 94.0528 )
+scale = Vector2( 1, 1 )
+energy = 0.4
+
+[node name="Light2" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
+position = Vector2( 1743.75, 92.9416 )
+scale = Vector2( 1, 1 )
+energy = 0.4
+
 [node name="Bed" parent="Rooms/RedRoom" instance=ExtResource( 13 )]
-position = Vector2( 1886.85, 203.748 )
+position = Vector2( 1921.93, 198.991 )
 rotation = -3.14159
 scale = Vector2( 3, -3 )
 z_index = -1
@@ -192,25 +210,13 @@ margin_top = 56.2062
 margin_right = 1399.72
 margin_bottom = 326.206
 
-[node name="WallOcclusion" type="LightOccluder2D" parent="Rooms/RedRoom"]
-occluder = SubResource( 8 )
-
-[node name="Occluder" type="LightOccluder2D" parent="Rooms/RedRoom"]
-light_mask = 3
-occluder = SubResource( 7 )
-light_mask = 3
-
-[node name="Light" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
-position = Vector2( 1519.78, 94.0528 )
-scale = Vector2( 1, 1 )
-energy = 0.4
-
-[node name="Light2" parent="Rooms/RedRoom" instance=ExtResource( 4 )]
-position = Vector2( 1743.75, 92.9416 )
-scale = Vector2( 1, 1 )
-energy = 0.4
-
 [node name="GreenRoom" type="Node" parent="Rooms"]
+
+[node name="Overcast" type="Light2D" parent="Rooms/GreenRoom"]
+position = Vector2( 2546.9, 866.361 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 16 )
+color = Color( 1, 0.980392, 0.862745, 1 )
 
 [node name="KitchenGarbageChute" parent="Rooms/GreenRoom" instance=ExtResource( 19 )]
 position = Vector2( 2240.24, 702.055 )
@@ -247,13 +253,14 @@ collision_mask = 0
 position = Vector2( 0, -0.420471 )
 polygon = PoolVector2Array( -880, 280, -880, 450, 170, 450, 170, -120, -880, -120, -880, 180, -800, 180, -800, 160, -730, 160, -730, 60, -370, 60, -370, 100, -120, 100, -120, 190, 115, 190, 115, 390, -800, 390, -800, 280 )
 
-[node name="Overcast" type="Light2D" parent="Rooms/GreenRoom"]
-position = Vector2( 2546.9, 866.361 )
+[node name="MainRoom" type="Node" parent="Rooms"]
+
+[node name="Overcast" type="Light2D" parent="Rooms/MainRoom"]
+position = Vector2( 1530, 860 )
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 16 )
-color = Color( 1, 0.980392, 0.862745, 1 )
-
-[node name="MainRoom" type="Node" parent="Rooms"]
+color = Color( 1, 0.941176, 0.784314, 1 )
+energy = 0.6
 
 [node name="Walls" type="StaticBody2D" parent="Rooms/MainRoom"]
 visible = false
@@ -269,13 +276,6 @@ shape = SubResource( 5 )
 
 [node name="MainDoor" parent="Rooms/MainRoom" instance=ExtResource( 6 )]
 position = Vector2( 1536, 1153.52 )
-
-[node name="Overcast" type="Light2D" parent="Rooms/MainRoom"]
-position = Vector2( 1530, 860 )
-scale = Vector2( 1, 0.5 )
-texture = ExtResource( 16 )
-color = Color( 1, 0.941176, 0.784314, 1 )
-energy = 0.6
 
 [node name="Light" parent="Rooms/MainRoom" instance=ExtResource( 15 )]
 position = Vector2( 1329.46, 653.746 )
