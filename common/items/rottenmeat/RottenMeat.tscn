@@ -5,7 +5,7 @@
 [ext_resource path="res://common/items/rottenmeat/22. GROSS FOOD (SQUISH) MASTER.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 120 )
+extents = Vector2( 20, 120 )
 
 [node name="RottenMeat" type="Area2D"]
 collision_layer = 0
