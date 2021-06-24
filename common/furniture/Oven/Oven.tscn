@@ -22,7 +22,7 @@ animations = [ {
 extents = Vector2( 30, 30 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20, 100 )
+extents = Vector2( 10, 110 )
 
 [node name="Oven" type="StaticBody2D"]
 scale = Vector2( 2, 1 )

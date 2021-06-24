@@ -10,10 +10,10 @@ func _ready():
   bgm[3] = preload("res://sounds/main_music.wav")
 
 func playbgm(room):
-  var play = Util.game.get_node("BackgroundMusic")
+  var play = Util.game.get_node("Music")
   play.stop()
   play.stream = bgm[room]
   play.play()
 
 func stop():
-  Util.game.get_node("BackgroundMusic").stop()
+  Util.game.get_node("Music").stop()

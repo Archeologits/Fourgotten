@@ -92,7 +92,7 @@ Sounds="*res://sounds/Sounds.gd"
 
 [debug]
 
-gdscript/warnings/unused_class_variable=true
+gdscript/warnings/integer_division=false
 
 [display]
 

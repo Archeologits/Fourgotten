@@ -13,15 +13,18 @@ func interact(body : Player) -> void:
     if body.tools.has("Wine") and body.tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message(body.number, "Drop wine & rotten meat in garbage chute? (E)")
+      if $Interact.overlaps_body(body):
+        Util.swap_message(body.number, "Drop wine & rotten meat in garbage chute? (E)")
     elif body.tools.has("Wine"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message(body.number, "Drop wine in garbage chute? (E)")
+      if $Interact.overlaps_body(body):
+        Util.swap_message(body.number, "Drop wine in garbage chute? (E)")
     elif body.tools.has("Rotten meat"):
       $Timer.start()
       yield($Timer, "timeout")
-      Util.swap_message(body.number, "Drop rotten meat in garbage chute? (E)")
+      if $Interact.overlaps_body(body):
+        Util.swap_message(body.number, "Drop rotten meat in garbage chute? (E)")
 
   elif chute_opened:
 

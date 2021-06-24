@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://common/items/candle/candleon.png" type="Texture" id=1]
 [ext_resource path="res://common/items/candle/candleoff.png" type="Texture" id=2]
@@ -20,7 +20,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 60 )
+extents = Vector2( 10, 60 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 60, 10 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "pulsate"
@@ -54,6 +57,9 @@ animation = "off"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
 
 [node name="Light" type="Light2D" parent="."]
 position = Vector2( 0, -44 )
