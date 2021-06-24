@@ -45,7 +45,8 @@ func _continue() -> void:
 
 func _new_game(delay : float = 0.5) -> void:
   yield(get_tree().create_timer(delay), "timeout")
-  assert(get_tree().change_scene("res://Main.tscn") == OK)
+#  assert(get_tree().change_scene("res://Main.tscn") == OK)
+  get_tree().change_scene("res://Main.tscn")
   get_tree().paused = false
 
 func _options() -> void:
