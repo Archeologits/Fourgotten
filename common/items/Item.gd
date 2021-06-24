@@ -22,6 +22,7 @@ func interact(body : Player) -> void:
     Util.swap_message(body.number, collected)
     body.collect_tool(tool_name)
     item_collected = true
+    $Audio.play()
   else:
     Util.swap_message(body.number, "...")
     Util.shake()

@@ -29,3 +29,7 @@ func interact(body : Player) -> void:
   else:
     Util.swap_message(body.number, "...")
     Util.shake()
+
+func _on_RedDoor_opened(player : Player) -> void:
+  queue_free()
+    

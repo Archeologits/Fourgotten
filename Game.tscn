@@ -351,6 +351,7 @@ autoplay = true
 bus = "Music"
 
 [connection signal="opened" from="Rooms/BlueRoom/PantryDoor" to="Rooms/BlueRoom/Roof" method="_on_door_opened"]
+[connection signal="opened" from="Rooms/RedRoom/RedDoor" to="Rooms/BlueRoom/RedCardPassage" method="_on_RedDoor_opened"]
 [connection signal="opened" from="Rooms/RedRoom/StudyRoomDoor" to="Rooms/RedRoom/Roof" method="_on_door_opened"]
 [connection signal="opened" from="Rooms/MainRoom/MainDoor" to="EndScreen" method="_on_MainDoor_opened"]
 [connection signal="merge" from="Player0" to="." method="_on_merge"]
