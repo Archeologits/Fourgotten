@@ -14,9 +14,9 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="."]
-margin_top = 251.0
+margin_top = 250.0
 margin_right = 504.0
-margin_bottom = 339.0
+margin_bottom = 338.0
 columns = 2
 
 [node name="MusicVolumeLabel" type="Label" parent="Grid"]
